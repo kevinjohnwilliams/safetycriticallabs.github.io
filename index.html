@@ -35,7 +35,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── CALIBRATION TEXTURE ─────────────────────────────────── */
   body::before {
     content: '';
     position: fixed;
@@ -49,7 +48,7 @@
     z-index: 0;
   }
 
-  /* ── NAV ─────────────────────────────────────────────────── */
+  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -75,7 +74,6 @@
   .wordmark-icon {
     width: 28px;
     height: 28px;
-    position: relative;
     flex-shrink: 0;
   }
 
@@ -87,9 +85,7 @@
     text-transform: uppercase;
   }
 
-  .wordmark-text span {
-    color: var(--red);
-  }
+  .wordmark-text span { color: var(--red); }
 
   nav ul {
     list-style: none;
@@ -119,7 +115,7 @@
 
   .nav-cta:hover { background: var(--red) !important; color: #fff !important; }
 
-  /* ── HERO ────────────────────────────────────────────────── */
+  /* HERO */
   .hero {
     position: relative;
     z-index: 1;
@@ -127,7 +123,6 @@
     display: flex;
     align-items: center;
     padding: 120px 48px 80px;
-    overflow: hidden;
   }
 
   .hero-inner {
@@ -223,10 +218,8 @@
 
   .btn-ghost:hover { color: var(--red); }
 
-  /* ── HERO INSTRUMENT ─────────────────────────────────────── */
-  .hero-instrument {
-    position: relative;
-  }
+  /* INSTRUMENT CARD */
+  .hero-instrument { position: relative; }
 
   .instrument-card {
     background: var(--ink);
@@ -289,23 +282,14 @@
     background: rgba(255,255,255,0.04);
     border-radius: 2px;
     border-left: 2px solid transparent;
-    transition: border-color 0.2s;
   }
 
   .req-item.pass { border-left-color: #4CAF50; }
   .req-item.warn { border-left-color: #FFA726; }
   .req-item.pending { border-left-color: rgba(255,255,255,0.2); }
 
-  .req-id {
-    color: var(--red);
-    min-width: 36px;
-  }
-
-  .req-name {
-    flex: 1;
-    padding: 0 10px;
-    opacity: 0.8;
-  }
+  .req-id { color: var(--red); min-width: 36px; }
+  .req-name { flex: 1; padding: 0 10px; opacity: 0.8; }
 
   .req-badge {
     font-size: 9px;
@@ -328,17 +312,14 @@
     font-size: 10px;
   }
 
-  /* ── SECTION BASE ────────────────────────────────────────── */
+  /* SECTIONS */
   section {
     position: relative;
     z-index: 1;
     padding: 100px 48px;
   }
 
-  .section-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
 
   .section-tag {
     font-family: var(--mono);
@@ -377,25 +358,26 @@
     margin-bottom: 60px;
   }
 
-  /* ── DIVIDER ─────────────────────────────────────────────── */
   .divider {
     border: none;
     border-top: 1px solid var(--rule);
     margin: 0;
+    position: relative;
+    z-index: 1;
   }
 
-  /* ── PROBLEM SECTION ─────────────────────────────────────── */
-  .problem-section {
+  /* RISK SECTION */
+  .risk-section {
     background: var(--ink);
     color: var(--bg);
   }
 
-  .problem-section .section-tag { color: rgba(255,255,255,0.35); }
-  .problem-section .section-tag::before { background: rgba(255,255,255,0.35); }
-  .problem-section h2 { color: var(--bg); }
-  .problem-section .section-lead { color: rgba(255,255,255,0.55); }
+  .risk-section .section-tag { color: rgba(255,255,255,0.35); }
+  .risk-section .section-tag::before { background: rgba(255,255,255,0.35); }
+  .risk-section h2 { color: var(--bg); }
+  .risk-section .section-lead { color: rgba(255,255,255,0.55); }
 
-  .gaps-grid {
+  .risk-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1px;
@@ -405,93 +387,287 @@
     overflow: hidden;
   }
 
-  .gap-item {
+  .risk-item {
     background: var(--ink);
-    padding: 28px 24px;
-    transition: background 0.2s;
+    padding: 32px 28px;
   }
 
-  .gap-item:hover { background: rgba(255,255,255,0.04); }
-
-  .gap-standard {
+  .risk-who {
     font-family: var(--mono);
     font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--red);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
-  .gap-title {
-    font-size: 15px;
-    font-weight: 500;
+  .risk-title {
+    font-family: var(--serif);
+    font-size: 20px;
     color: rgba(255,255,255,0.9);
-    margin-bottom: 8px;
-    line-height: 1.4;
+    margin-bottom: 12px;
+    line-height: 1.3;
   }
 
-  .gap-body {
-    font-size: 13px;
-    color: rgba(255,255,255,0.4);
-    line-height: 1.6;
+  .risk-body {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
   }
 
-  /* ── FRAMEWORK SECTION ───────────────────────────────────── */
-  .framework-grid {
+  /* PRODUCT SECTION */
+  .product-section { background: #fff; }
+
+  .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+    margin-bottom: 60px;
   }
 
-  .req-card {
-    background: #fff;
+  .product-card {
     border: 1px solid var(--rule);
     border-radius: 4px;
-    padding: 24px;
-    transition: border-color 0.2s, transform 0.2s;
-    cursor: default;
+    padding: 32px 28px;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
   }
 
-  .req-card:hover {
-    border-color: var(--red);
-    transform: translateY(-2px);
+  .product-card.featured {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
   }
 
-  .req-card-id {
+  .product-tier {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+
+  .product-card.featured .product-tier { color: rgba(255,255,255,0.5); }
+
+  .product-name {
+    font-family: var(--serif);
+    font-size: 24px;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .product-card.featured .product-name { color: var(--bg); }
+
+  .product-desc {
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.7;
+    margin-bottom: 28px;
+    flex: 1;
+  }
+
+  .product-card.featured .product-desc { color: rgba(255,255,255,0.55); }
+
+  .product-includes {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 12px;
+  }
+
+  .product-card.featured .product-includes { color: rgba(255,255,255,0.35); }
+
+  .product-item {
+    font-size: 13px;
+    color: var(--ink-2);
+    padding: 8px 0;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .product-card.featured .product-item {
+    color: rgba(255,255,255,0.7);
+    border-top-color: rgba(255,255,255,0.1);
+  }
+
+  .product-item::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--red);
+    flex-shrink: 0;
+  }
+
+  .product-cta {
+    margin-top: 24px;
+    display: block;
+    text-align: center;
     font-family: var(--mono);
     font-size: 11px;
-    color: var(--red);
     letter-spacing: 0.1em;
-    margin-bottom: 10px;
+    text-transform: uppercase;
+    padding: 12px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    background: transparent;
   }
 
-  .req-card-title {
+  .product-cta:hover { background: var(--ink); color: var(--bg); }
+
+  .product-card.featured .product-cta {
+    background: var(--red);
+    border-color: var(--red);
+    color: #fff;
+  }
+
+  .product-card.featured .product-cta:hover { background: #a51f24; border-color: #a51f24; }
+
+  /* WHAT YOU RECEIVE */
+  .receive-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    margin-top: 60px;
+  }
+
+  .receive-visual {
+    background: var(--ink);
+    border-radius: 4px;
+    padding: 40px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .cert-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .cert-preview-brand {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .cert-preview-brand span { color: var(--red); }
+
+  .cert-preview-number {
+    font-size: 10px;
+    color: rgba(255,255,255,0.25);
+    text-align: right;
+  }
+
+  .cert-preview-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.9);
+    text-align: center;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .cert-preview-subtitle {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 28px;
+  }
+
+  .cert-preview-system {
+    background: rgba(255,255,255,0.05);
+    padding: 16px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .cert-preview-system-label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 6px;
+  }
+
+  .cert-preview-system-name {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .cert-preview-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 10px;
+  }
+
+  .cert-preview-row-label { color: rgba(255,255,255,0.3); letter-spacing: 0.1em; }
+  .cert-preview-row-value { color: rgba(255,255,255,0.7); }
+  .cert-preview-row-value.certified { color: #4CAF50; }
+
+  .cert-preview-footer {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.08em;
+  }
+
+  .receive-list { display: flex; flex-direction: column; gap: 24px; }
+
+  .receive-item {
+    padding: 24px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--bg);
+  }
+
+  .receive-item-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 6px;
+  }
+
+  .receive-item-title {
     font-size: 15px;
     font-weight: 500;
-    margin-bottom: 8px;
-    line-height: 1.4;
+    margin-bottom: 6px;
   }
 
-  .req-card-body {
+  .receive-item-body {
     font-size: 13px;
     color: var(--ink-2);
     line-height: 1.6;
   }
 
-  .req-scope {
-    display: inline-block;
-    margin-top: 14px;
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-    border: 1px solid var(--rule);
-    padding: 3px 8px;
-    border-radius: 2px;
-  }
-
-  /* ── PROCESS SECTION ─────────────────────────────────────── */
+  /* PROCESS */
   .process-steps {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -511,11 +687,7 @@
     z-index: 0;
   }
 
-  .process-step {
-    padding: 0 20px;
-    position: relative;
-    z-index: 1;
-  }
+  .process-step { padding: 0 20px; position: relative; z-index: 1; }
 
   .step-num {
     width: 56px;
@@ -540,60 +712,23 @@
     color: #fff;
   }
 
-  .step-title {
-    font-size: 15px;
-    font-weight: 500;
-    margin-bottom: 8px;
-  }
+  .step-title { font-size: 15px; font-weight: 500; margin-bottom: 8px; }
+  .step-body { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
 
-  .step-body {
-    font-size: 13px;
-    color: var(--ink-2);
-    line-height: 1.6;
-  }
-
-  /* ── FOUNDING SECTION ────────────────────────────────────── */
-  .founding-section {
+  /* PRINCIPLES */
+  .principles-section {
     background: var(--red-light);
     border-top: 1px solid rgba(200,39,45,0.15);
     border-bottom: 1px solid rgba(200,39,45,0.15);
   }
 
-  .founding-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  .founding-quote {
-    font-family: var(--serif);
-    font-size: 24px;
-    font-style: italic;
-    line-height: 1.5;
-    color: var(--ink);
-    margin-bottom: 24px;
-  }
-
-  .founding-attribution {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-2);
-  }
-
-  .credential-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
+  .credential-list { display: flex; flex-direction: column; gap: 16px; max-width: 720px; }
 
   .credential {
     display: flex;
     gap: 16px;
     align-items: flex-start;
-    padding: 16px 20px;
+    padding: 20px 24px;
     background: rgba(200,39,45,0.06);
     border-left: 2px solid var(--red);
     border-radius: 0 2px 2px 0;
@@ -607,34 +742,17 @@
     padding-top: 2px;
   }
 
-  .cred-text {
-    font-size: 14px;
-    color: var(--ink-2);
-    line-height: 1.5;
-  }
+  .cred-text { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+  .cred-text strong { display: block; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
 
-  .cred-text strong {
-    display: block;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 2px;
-  }
-
-  /* ── CTA SECTION ─────────────────────────────────────────── */
+  /* CTA */
   .cta-section {
     text-align: center;
     padding: 120px 48px;
   }
 
-  .cta-section h2 {
-    font-size: clamp(36px, 4vw, 56px);
-    margin-bottom: 20px;
-  }
-
-  .cta-section .section-lead {
-    max-width: 480px;
-    margin: 0 auto 40px;
-  }
+  .cta-section h2 { font-size: clamp(36px, 4vw, 56px); margin-bottom: 20px; }
+  .cta-section .section-lead { max-width: 480px; margin: 0 auto 40px; }
 
   .cta-actions {
     display: flex;
@@ -643,7 +761,7 @@
     flex-wrap: wrap;
   }
 
-  /* ── FOOTER ──────────────────────────────────────────────── */
+  /* FOOTER */
   footer {
     position: relative;
     z-index: 1;
@@ -661,30 +779,27 @@
   footer .wordmark-text { color: rgba(255,255,255,0.6); }
   footer .wordmark-text span { color: var(--red); }
 
-  /* ── ENTRY ANIMATION ─────────────────────────────────────── */
+  /* ANIMATIONS */
   .fade-up {
     opacity: 0;
     transform: translateY(18px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-  /* ── RESPONSIVE ──────────────────────────────────────────── */
+  /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 0 24px; }
     nav ul { display: none; }
     .hero { padding: 100px 24px 60px; }
     .hero-inner { grid-template-columns: 1fr; gap: 48px; }
     section { padding: 72px 24px; }
-    .gaps-grid { grid-template-columns: 1fr; }
-    .framework-grid { grid-template-columns: 1fr 1fr; }
+    .risk-grid { grid-template-columns: 1fr; }
+    .product-grid { grid-template-columns: 1fr; }
+    .receive-grid { grid-template-columns: 1fr; }
     .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
     .process-steps::before { display: none; }
-    .founding-inner { grid-template-columns: 1fr; gap: 40px; }
     .cta-section { padding: 80px 24px; }
     footer { flex-direction: column; gap: 12px; text-align: center; }
   }
@@ -704,9 +819,9 @@
     <span class="wordmark-text"><span>Safety Critical</span> Labs</span>
   </a>
   <ul>
-    <li><a href="#framework">Framework</a></li>
+    <li><a href="#why">Why certify</a></li>
+    <li><a href="#products">Products</a></li>
     <li><a href="#process">Process</a></li>
-    <li><a href="#about">About</a></li>
     <li><a href="#contact" class="nav-cta">Get certified</a></li>
   </ul>
 </nav>
@@ -717,21 +832,19 @@
     <div>
       <div class="hero-tag">AI Certification Authority</div>
       <h1>
-        The standard for<br>
-        <em>AI in critical</em><br>
-        systems
+        Your AI system<br>
+        needs a certificate.<br>
+        <em>We issue them.</em>
       </h1>
       <p class="hero-body">
-        Every standard currently applied to AI in human spaceflight was written before AI existed in human spaceflight. Safety Critical Labs provides the first certification framework built specifically for AI in safety-critical operations.
+        Buyers, regulators, and operators of AI in critical systems are asking one question: has this been independently assessed? Safety Critical Labs provides the formal certification that answers it.
       </p>
       <div class="hero-actions">
-       <a href="#framework" class="btn-primary">View the framework</a>
-       <a href="https://github.com/kevinjohnwilliams/AI_Requirements_Framework" class="btn-ghost" target="_blank">Read the standard →</a>
-       <a href="https://doi.org/10.5281/zenodo.19024421" class="btn-ghost" target="_blank">DOI: 10.5281/zenodo.19024421</a>
+        <a href="#products" class="btn-primary">See our products</a>
+        <a href="#process" class="btn-ghost">How it works →</a>
       </div>
     </div>
 
-    <!-- Instrument card -->
     <div class="hero-instrument">
       <div class="instrument-card">
         <div class="inst-header">
@@ -774,8 +887,8 @@
           </div>
         </div>
         <div class="inst-footer">
-          <span>CL-ASSESS-2025-001</span>
-          <span>Human Spaceflight / Safety-Critical</span>
+          <span>SCL-CERT-2025-007</span>
+          <span>Safety-Critical</span>
         </div>
       </div>
     </div>
@@ -784,142 +897,200 @@
 
 <hr class="divider">
 
-<!-- PROBLEM -->
-<section class="problem-section" id="problem">
+<!-- WHY CERTIFY -->
+<section class="risk-section" id="why">
   <div class="section-inner">
-    <div class="section-tag">The gap</div>
-    <h2>Existing standards<br>weren't built for AI</h2>
+    <div class="section-tag">Why this matters</div>
+    <h2>Three groups need<br>this certificate.</h2>
     <p class="section-lead">
-      NPR 7150.2D, ECSS-E-ST-40C, and ISO/IEC 5338 were written for deterministic systems. None address the failure modes that make AI in critical systems genuinely dangerous.
+      An SCL certificate answers the question every buyer, operator, and regulator is now asking about AI in critical systems.
     </p>
-    <div class="gaps-grid">
-      <div class="gap-item">
-        <div class="gap-standard">NPR 7150.2D</div>
-        <div class="gap-title">V&V occurs at delivery</div>
-        <div class="gap-body">Assumes stable behavior post-deployment. AI systems drift. No mechanism exists for re-validating a degraded model mid-mission.</div>
+    <div class="risk-grid">
+      <div class="risk-item fade-up">
+        <div class="risk-who">AI Developers</div>
+        <div class="risk-title">Prove your system has been independently assessed</div>
+        <div class="risk-body">
+          Self-attestation is not enough when lives depend on correct outputs. An SCL certificate demonstrates that a qualified third party reviewed your system against a published standard with verifiable pass/fail criteria. That is a different claim than anything you can make about yourself.
+        </div>
       </div>
-      <div class="gap-item">
-        <div class="gap-standard">All spaceflight standards</div>
-        <div class="gap-title">Hallucination is unrecognized</div>
-        <div class="gap-body">Confident, plausible, incorrect outputs are not a recognized failure mode in any current spaceflight software standard.</div>
+      <div class="risk-item fade-up">
+        <div class="risk-who">System Integrators and Buyers</div>
+        <div class="risk-title">Know what you are actually purchasing</div>
+        <div class="risk-body">
+          When you procure an AI system for safety-critical operations, you assume the risk. An SCL certificate tells you exactly what was assessed, against which standard, at which classification level, and when it expires. You make an informed decision. Uncertified AI leaves you with none of that.
+        </div>
       </div>
-      <div class="gap-item">
-        <div class="gap-standard">NASA-STD-8739.8</div>
-        <div class="gap-title">Safety cases assume code inspection</div>
-        <div class="gap-body">Safety analysis requires logical traceability. Black-box AI outputs cannot satisfy this requirement without an explicit explainability layer — none is mandated.</div>
-      </div>
-      <div class="gap-item">
-        <div class="gap-standard">ISO/IEC 5338 & 24027</div>
-        <div class="gap-title">Guidance without criteria</div>
-        <div class="gap-body">The closest AI-specific standards are process guidance documents. They name concerns without providing verifiable pass/fail criteria.</div>
-      </div>
-      <div class="gap-item">
-        <div class="gap-standard">All standards</div>
-        <div class="gap-title">OOD detection absent</div>
-        <div class="gap-body">No standard requires detection of inputs outside a model's training distribution — the condition under which AI behavior becomes least predictable.</div>
-      </div>
-      <div class="gap-item">
-        <div class="gap-standard">Human spaceflight</div>
-        <div class="gap-title">No AI-specific certification path</div>
-        <div class="gap-body">There is no established process by which an AI system in a human-rated vehicle can be assessed, certified, or recertified against a defined standard.</div>
+      <div class="risk-item fade-up">
+        <div class="risk-who">Program Managers and Regulators</div>
+        <div class="risk-title">Satisfy the AI assurance question before it becomes a problem</div>
+        <div class="risk-body">
+          Regulatory frameworks for AI in critical systems are forming now. Organizations that can produce a formal certification determination from an independent authority are ahead of every organization that cannot. SCL certification is the answer to the AI assurance question.
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FRAMEWORK -->
-<section id="framework" style="background: #fff;">
+<hr class="divider">
+
+<!-- PRODUCTS -->
+<section class="product-section" id="products">
   <div class="section-inner">
-    <div class="section-tag">The framework</div>
-    <h2>Nine requirement areas.<br>Every AI failure mode covered.</h2>
+    <div class="section-tag">Products</div>
+    <h2>What we offer.</h2>
     <p class="section-lead">
-      The Safety Critical Labs framework establishes verifiable requirements for each AI-specific failure mode not addressed by existing spaceflight standards. Algorithm-agnostic and domain-applicable.
+      Three engagement types depending on where you are in your certification journey.
     </p>
-    <div class="framework-grid">
-      <div class="req-card fade-up">
-        <div class="req-card-id">AI-1</div>
-        <div class="req-card-title">Data partitioning & classification</div>
-        <div class="req-card-body">Training/validation/test separation with documented provenance. CUI and ITAR classification inheritance through AI output channels.</div>
-        <span class="req-scope">All classifications</span>
+
+    <div class="product-grid">
+
+      <div class="product-card fade-up">
+        <div class="product-tier">Readiness</div>
+        <div class="product-name">Gap Assessment</div>
+        <div class="product-desc">
+          Not ready to certify yet but need to know where you stand. We assess your system against the SCL framework and deliver a detailed gap report with prioritized findings.
+        </div>
+        <div class="product-includes">Includes</div>
+        <div class="product-item">Applicability determination</div>
+        <div class="product-item">Requirement gap analysis</div>
+        <div class="product-item">Prioritized findings report</div>
+        <div class="product-item">Remediation guidance</div>
+        <a href="#contact" class="product-cta">Start a gap assessment</a>
       </div>
-      <div class="req-card fade-up">
-        <div class="req-card-id">AI-2</div>
-        <div class="req-card-title">Bias detection & mitigation</div>
-        <div class="req-card-body">Baseline performance across user classes and operational contexts. Bias-free training data requirements with verifiable inspection criteria.</div>
-        <span class="req-scope">All classifications</span>
+
+      <div class="product-card featured fade-up">
+        <div class="product-tier">Core product</div>
+        <div class="product-name">Certification Assessment</div>
+        <div class="product-desc">
+          The full four-phase assessment resulting in a formal certification determination. If your system meets the standard, you receive an SCL Certificate of Conformance.
+        </div>
+        <div class="product-includes">Includes</div>
+        <div class="product-item">Applicability determination</div>
+        <div class="product-item">Evidence package review</div>
+        <div class="product-item">Technical assessment</div>
+        <div class="product-item">SCL Certificate of Conformance</div>
+        <div class="product-item">Certification determination document</div>
+        <div class="product-item">Surveillance schedule</div>
+        <a href="#contact" class="product-cta">Get certified</a>
       </div>
-      <div class="req-card fade-up">
-        <div class="req-card-id">AI-3</div>
-        <div class="req-card-title">ML test coverage</div>
-        <div class="req-card-body">A defined test matrix as the ML equivalent of code coverage — spanning nominal performance, edge cases, and failure mode injection.</div>
-        <span class="req-scope">All classifications</span>
+
+      <div class="product-card fade-up">
+        <div class="product-tier">Ongoing</div>
+        <div class="product-name">Surveillance Audit</div>
+        <div class="product-desc">
+          AI systems drift. A certificate issued at deployment is not valid indefinitely. Annual or biennial surveillance audits confirm your system continues to meet the standard.
+        </div>
+        <div class="product-includes">Includes</div>
+        <div class="product-item">Drift and performance review</div>
+        <div class="product-item">Change impact assessment</div>
+        <div class="product-item">Certificate continuation or update</div>
+        <div class="product-item">Updated determination document</div>
+        <a href="#contact" class="product-cta">Schedule surveillance</a>
       </div>
-      <div class="req-card fade-up">
-        <div class="req-card-id">AI-4</div>
-        <div class="req-card-title">Continuous validation</div>
-        <div class="req-card-body">Post-deployment drift detection with defined thresholds, revalidation triggers, and escalation paths. Closes the single largest gap in existing spaceflight standards.</div>
-        <span class="req-scope">All classifications</span>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- WHAT YOU RECEIVE -->
+<section id="certificate">
+  <div class="section-inner">
+    <div class="section-tag">The certificate</div>
+    <h2>What you receive<br>when you certify.</h2>
+    <p class="section-lead">
+      A formal determination document and a certificate stating exactly what was assessed, against which standard, and at which classification level.
+    </p>
+
+    <div class="receive-grid">
+      <div class="receive-visual fade-up">
+        <div class="cert-preview-header">
+          <div class="cert-preview-brand"><span>Safety Critical</span> Labs</div>
+          <div class="cert-preview-number">SCL-CERT-2025-001<br>Framework v1.0</div>
+        </div>
+        <div class="cert-preview-title">Certificate of Conformance</div>
+        <div class="cert-preview-subtitle">AI Requirements Framework Assessment</div>
+        <div class="cert-preview-system">
+          <div class="cert-preview-system-label">Certified System</div>
+          <div class="cert-preview-system-name">Your AI System</div>
+        </div>
+        <div class="cert-preview-row">
+          <span class="cert-preview-row-label">Classification</span>
+          <span class="cert-preview-row-value">Safety-Critical AI</span>
+        </div>
+        <div class="cert-preview-row">
+          <span class="cert-preview-row-label">Determination</span>
+          <span class="cert-preview-row-value certified">Certified</span>
+        </div>
+        <div class="cert-preview-row">
+          <span class="cert-preview-row-label">Requirements assessed</span>
+          <span class="cert-preview-row-value">AI-1 through AI-9</span>
+        </div>
+        <div class="cert-preview-row">
+          <span class="cert-preview-row-label">Valid through</span>
+          <span class="cert-preview-row-value">Annual surveillance</span>
+        </div>
+        <div class="cert-preview-footer">
+          <span>DOI 10.5281/zenodo.19024421</span>
+          <span>safetycriticallabs.com</span>
+        </div>
       </div>
-      <div class="req-card fade-up">
-        <div class="req-card-id">AI-5</div>
-        <div class="req-card-title">Hallucination prevention</div>
-        <div class="req-card-body">Output confidence bounding with defined thresholds for safety-critical decisions. Graceful degradation to human override below threshold.</div>
-        <span class="req-scope">All classifications</span>
-      </div>
-      <div class="req-card fade-up">
-        <div class="req-card-id">AI-6</div>
-        <div class="req-card-title">Out-of-distribution detection</div>
-        <div class="req-card-body">Detection, logging, and escalation of inputs outside the training distribution — the condition under which AI behavior is least predictable.</div>
-        <span class="req-scope">All classifications</span>
-      </div>
-      <div class="req-card fade-up">
-        <div class="req-card-id">AI-7</div>
-        <div class="req-card-title">Adversarial robustness</div>
-        <div class="req-card-body">Adversarial testing, defined robustness bounds, and specified behavior under adversarial input conditions for safety-critical deployments.</div>
-        <span class="req-scope">Safety-critical only</span>
-      </div>
-      <div class="req-card fade-up">
-        <div class="req-card-id">AI-8</div>
-        <div class="req-card-title">Explainability</div>
-        <div class="req-card-body">Operator-accessible decision reasoning with traceable decision basis. Required for any AI system where a traditional safety case would require logical inspection.</div>
-        <span class="req-scope">Safety & mission critical</span>
-      </div>
-      <div class="req-card fade-up">
-        <div class="req-card-id">AI-9</div>
-        <div class="req-card-title">Human-AI teaming</div>
-        <div class="req-card-body">Defined AI authority limits, human override requirements, trust calibration testing, and interaction audit trails. Built for spaceflight crew dynamics.</div>
-        <span class="req-scope">Safety & mission critical</span>
+
+      <div class="receive-list fade-up">
+        <div class="receive-item">
+          <div class="receive-item-label">Certificate of Conformance</div>
+          <div class="receive-item-title">A formal document you can show anyone</div>
+          <div class="receive-item-body">States the system assessed, the framework version, the classification level, and the determination. Share it with buyers, program offices, and regulators.</div>
+        </div>
+        <div class="receive-item">
+          <div class="receive-item-label">Certification Determination Document</div>
+          <div class="receive-item-title">The complete technical record</div>
+          <div class="receive-item-body">Every requirement assessed, every finding documented, and the rationale behind the determination. This is what satisfies technical due diligence.</div>
+        </div>
+        <div class="receive-item">
+          <div class="receive-item-label">Surveillance Schedule</div>
+          <div class="receive-item-title">A certificate that stays current</div>
+          <div class="receive-item-body">AI systems drift. Your certificate comes with a defined surveillance schedule so it remains valid and meaningful beyond the initial assessment date.</div>
+        </div>
+        <div class="receive-item">
+          <div class="receive-item-label">Framework Reference</div>
+          <div class="receive-item-title">Assessed against a published, citable standard</div>
+          <div class="receive-item-body">The SCL AI Requirements Framework is publicly available and formally published at DOI 10.5281/zenodo.19024421. Your certificate references a real standard anyone can read.</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<hr class="divider">
 
 <!-- PROCESS -->
 <section id="process">
   <div class="section-inner">
-    <div class="section-tag">Certification process</div>
-    <h2>From assessment<br>to certification</h2>
-    <p class="section-lead">A rigorous four-phase process produces a formal determination — not a recommendation — that your system was assessed against a defined standard.</p>
+    <div class="section-tag">Process</div>
+    <h2>Four phases.<br>One determination.</h2>
+    <p class="section-lead">A structured process that produces a formal certification determination, not a scorecard or a recommendation.</p>
     <div class="process-steps">
       <div class="process-step fade-up">
         <div class="step-num">01</div>
         <div class="step-title">Applicability determination</div>
-        <div class="step-body">Classify your AI system against the framework criteria. Establish which requirement sets apply and document any tailoring rationale.</div>
+        <div class="step-body">We classify your AI system and establish exactly which requirements apply. You know the scope before any work begins.</div>
       </div>
       <div class="process-step fade-up">
         <div class="step-num">02</div>
         <div class="step-title">Evidence package review</div>
-        <div class="step-body">Submit documentation, test reports, and verification matrices. Our team reviews against each applicable AI-1 through AI-9 requirement.</div>
+        <div class="step-body">You submit documentation, test reports, and verification records. We review each one against the applicable requirements.</div>
       </div>
       <div class="process-step fade-up">
         <div class="step-num">03</div>
         <div class="step-title">Technical assessment</div>
-        <div class="step-body">Structured audit of your system against the framework. Findings documented with specific requirement references and success criteria.</div>
+        <div class="step-body">A structured audit of your system. Every finding is documented with the specific requirement reference and the success criteria it was measured against.</div>
       </div>
       <div class="process-step fade-up">
         <div class="step-num">04</div>
         <div class="step-title">Certification issuance</div>
-        <div class="step-body">Formal determination document stating which requirements were met, at which classification level, and as of which framework version.</div>
+        <div class="step-body">A formal determination document and, if your system meets the standard, a numbered SCL Certificate of Conformance.</div>
       </div>
     </div>
   </div>
@@ -928,38 +1099,38 @@
 <hr class="divider">
 
 <!-- PRINCIPLES -->
-<section class="founding-section" id="about">
+<section class="principles-section" id="about">
   <div class="section-inner">
-    <div class="section-tag">Our principles</div>
-    <h2 style="margin-bottom: 12px;">How we work</h2>
-    <p class="section-lead" style="margin-bottom: 48px;">Certification is only meaningful if the standard behind it is rigorous, transparent, and built for the domain it covers.</p>
-    <div class="credential-list" style="max-width: 720px;">
+    <div class="section-tag">How we work</div>
+    <h2>The standard behind<br>the certificate.</h2>
+    <p class="section-lead" style="margin-bottom: 48px;">A certificate is only worth something if the standard behind it is rigorous and the authority issuing it is credible.</p>
+    <div class="credential-list">
       <div class="credential">
         <span class="cred-icon">◆</span>
         <div class="cred-text">
           <strong>Open standard</strong>
-          The Safety Critical Labs framework is publicly available on GitHub. We certify against a standard anyone can read, audit, and challenge. Transparency is not optional — it is the foundation of trust.
+          The SCL AI Requirements Framework is publicly available on GitHub and formally published at DOI 10.5281/zenodo.19024421. We certify against a standard anyone can read, audit, and challenge.
         </div>
       </div>
       <div class="credential">
         <span class="cred-icon">◆</span>
         <div class="cred-text">
           <strong>Determinations, not recommendations</strong>
-          A Safety Critical Labs certificate states what was assessed, against which version of the framework, and at which classification level. It does not claim a system is safe — it claims the system was rigorously evaluated against a defined standard.
+          An SCL certificate states what was assessed, against which version of the framework, and at which classification level. It does not claim a system is safe. It claims the system was rigorously evaluated against a defined standard with verifiable pass/fail criteria.
         </div>
       </div>
       <div class="credential">
         <span class="cred-icon">◆</span>
         <div class="cred-text">
-          <strong>Domain-first methodology</strong>
-          The framework was developed from within the operational environment of human spaceflight — not adapted from a generic AI governance document. Requirements address the actual failure modes of actual systems in actual use.
+          <strong>Built from inside operational environments</strong>
+          The framework was developed from direct experience building AI systems for safety-critical operations. Requirements address actual failure modes of actual systems, not theoretical concerns from a standards committee working in the abstract.
         </div>
       </div>
       <div class="credential">
         <span class="cred-icon">◆</span>
         <div class="cred-text">
-          <strong>Certification is not a one-time event</strong>
-          AI systems drift. A certificate issued at deployment is not a certificate valid at month six. Safety Critical Labs builds continuous validation requirements into every assessment — because the standard demands it.
+          <strong>Certification does not expire quietly</strong>
+          AI systems drift. Every SCL certificate includes a defined surveillance schedule. A certificate that goes unsurveilled is flagged, not silently renewed. The standard demands it.
         </div>
       </div>
     </div>
@@ -968,14 +1139,14 @@
 
 <!-- CTA -->
 <section class="cta-section" id="contact">
-  <div class="section-tag" style="justify-content:center">Start here</div>
+  <div class="section-tag" style="justify-content:center">Get started</div>
   <h2>Ready to certify<br>your AI system?</h2>
   <p class="section-lead">
-    Whether you're preparing for regulatory scrutiny or building responsible AI practices into your development lifecycle now — we can help.
+    Start with a gap assessment or go straight to certification. Either way, we will tell you exactly where you stand.
   </p>
   <div class="cta-actions">
-    <a href="#contact" class="btn-primary">Get in touch</a>
-    <a href="https://github.com/kevinjohnwilliams/AI_Requirements_Framework" class="btn-ghost" target="_blank">Read the framework →</a>
+    <a href="mailto:hello@safetycriticallabs.com" class="btn-primary">Get in touch</a>
+    <a href="https://doi.org/10.5281/zenodo.19024421" class="btn-ghost" target="_blank">Read the standard →</a>
   </div>
 </section>
 
@@ -984,8 +1155,8 @@
   <a href="/" class="wordmark" style="text-decoration:none">
     <span class="wordmark-text"><span>Safety Critical</span> Labs</span>
   </a>
-  <span>Framework v1.0 · Human Spaceflight · Est. 2025</span>
-  <span>safetycriticallabs.io</span>
+  <span>Framework v1.0 · Est. 2025 · DOI 10.5281/zenodo.19024421</span>
+  <span>safetycriticallabs.com</span>
 </footer>
 
 <script>
