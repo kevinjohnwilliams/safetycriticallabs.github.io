@@ -211,24 +211,6 @@
   </div>
 </div>
 
-<!-- STATS STRIP -->
-<div class="stats-strip" style="background:var(--ink);">
-  <div class="stats-inner">
-    <div class="stat-block">
-      <div class="stat-num">9</div>
-      <div class="stat-label">Requirement areas covering every AI-specific failure mode</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num">v<em>1.0</em></div>
-      <div class="stat-label">Published Feb 2025 with citable DOI</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num">3</div>
-      <div class="stat-label">Classification tiers scaled to consequence of failure</div>
-    </div>
-  </div>
-</div>
-
 <!-- CLASSIFICATION KEY + FRAMEWORK -->
 <section class="page-section" style="background: var(--bg);">
   <div class="section-inner">
@@ -367,44 +349,39 @@
   </div>
 </div>
 
-<!-- OPEN STANDARD -->
+<!-- WHAT THE FRAMEWORK PRODUCES -->
 <div class="open-standard-band">
   <div class="os-inner">
     <div class="os-left">
-      <div class="section-eyebrow" style="color: rgba(200,39,45,0.6)"><span style="display:inline-block;width:14px;height:1px;background:rgba(200,39,45,0.5);margin-right:10px;vertical-align:middle;"></span>Open standard</div>
-      <h2>A standard anyone<br>can read and challenge.</h2>
+      <div class="section-eyebrow" style="color: rgba(200,39,45,0.6)"><span style="display:inline-block;width:14px;height:1px;background:rgba(200,39,45,0.5);margin-right:10px;vertical-align:middle;"></span>What assessment produces</div>
+      <h2>A formal determination.<br>Not a score.</h2>
       <p>
-        The framework is publicly available on GitHub and formally citable with a DOI through Zenodo. We certify against a standard that is fully transparent &mdash; not a proprietary black box.
+        Assessment against this framework produces one of three outcomes. Each determination is documented against a specific version of the framework, at a defined classification level, with every finding on record. There is no subjective rating, no maturity index, no percentage.
       </p>
       <p>
-        Transparency in the standard is the foundation of trust in any certification authority. The methodology for how we conduct assessments is proprietary. The standard we assess against is not.
+        The standard is publicly available so you can read every requirement before engaging with SCL. That transparency is deliberate. A certification is only defensible to regulators and procurement officers if anyone can verify what it was measured against.
       </p>
-      <div style="margin-top: 24px; display:flex; gap: 12px; flex-wrap: wrap;">
-        <a href="https://github.com/kevinjohnwilliams/AI_Requirements_Framework" class="btn btn-solid" target="_blank">View on GitHub &rarr;</a>
-        <a href="process.html" class="btn btn-outline">How we certify</a>
+      <div style="margin-top: 24px; display:flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+        <a href="process.html" class="btn btn-solid">How assessment works &rarr;</a>
+        <a href="https://github.com/kevinjohnwilliams/AI_Requirements_Framework" style="font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3);text-decoration:none;" target="_blank">View standard on GitHub &rarr;</a>
       </div>
     </div>
     <div class="os-right">
-      <div class="os-item">
-        <span class="os-item-label">GitHub</span>
-        <span class="os-item-val"><a href="https://github.com/kevinjohnwilliams/AI_Requirements_Framework" target="_blank">kevinjohnwilliams/AI_Requirements_Framework</a></span>
+      <div class="os-item" style="border-left: 3px solid #2D7A3A;">
+        <span class="os-item-label" style="color: #2D7A3A;">Certified</span>
+        <span class="os-item-val">All applicable requirements met. Certificate issued with a validity period and a scheduled surveillance audit.</span>
       </div>
-      <div class="os-item">
-        <span class="os-item-label">DOI</span>
-        <span class="os-item-val"><a href="https://doi.org/10.5281/zenodo.19024421" target="_blank">10.5281/zenodo.19024421</a></span>
+      <div class="os-item" style="border-left: 3px solid #C8861A;">
+        <span class="os-item-label" style="color: #C8861A;">Conditional</span>
+        <span class="os-item-val">Minor findings documented. Certificate issued with specific, time-bound conditions attached and a required closure review.</span>
       </div>
-      <div class="os-item">
-        <span class="os-item-label">Version</span>
-        <span class="os-item-val">v1.0 &mdash; Published February 2025</span>
+      <div class="os-item" style="border-left: 3px solid var(--red);">
+        <span class="os-item-label">Not Certified</span>
+        <span class="os-item-val">One or more requirements not met. Findings documented. Remediation required before re-assessment. A Determination Document is issued regardless of outcome.</span>
       </div>
-      <div class="os-item">
-        <span class="os-item-label">License</span>
-        <span class="os-item-val">Open — read, audit, and challenge. Assessment methodology is proprietary.</span>
-      </div>
-      <div class="os-item">
-        <span class="os-item-label">Scope</span>
-        <span class="os-item-val">Algorithm-agnostic. Domain-agnostic. Applicable wherever AI failure has safety consequences.</span>
-      </div>
+      <p style="font-size:12px;color:var(--ink-3);line-height:1.6;margin-top:4px;font-family:var(--mono);letter-spacing:0.02em;">
+        A Conditional Certification is not a lesser certificate. It is a certificate with specific, documented, time-bound conditions. It requires a closure review within the agreed timeframe.
+      </p>
     </div>
   </div>
 </div>
