@@ -330,12 +330,18 @@ h2.section-title em { font-style: italic; color: var(--red); }
 /* WHAT YOU GET SECTION */
 .outputs-section { background: var(--ink); padding: 80px 40px; border-top: 1px solid rgba(255,255,255,0.06); }
 .outputs-inner { max-width: 1140px; margin: 0 auto; }
-.outputs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; }
+
+.outputs-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 40px; align-items: start; margin-top: 48px;
+}
+
+.outputs-grid { display: flex; flex-direction: column; gap: 2px; }
 
 .output-card {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
-  padding: 32px 28px;
+  padding: 22px 20px;
 }
 .output-card.output-card-primary {
   background: rgba(200,39,45,0.07);
@@ -344,18 +350,18 @@ h2.section-title em { font-style: italic; color: var(--red); }
 .output-card-label {
   font-family: var(--mono); font-size: 9px;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--red); margin-bottom: 14px;
+  color: var(--red); margin-bottom: 10px;
 }
-.output-card-title { font-size: 18px; font-weight: 500; color: #fff; margin-bottom: 12px; line-height: 1.3; }
-.output-card-desc { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.7; }
+.output-card-title { font-size: 15px; font-weight: 500; color: #fff; margin-bottom: 8px; line-height: 1.3; }
+.output-card-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; }
 .output-card-desc strong { color: rgba(255,255,255,0.7); font-weight: 500; }
 
 .score-display {
   display: flex; align-items: baseline; gap: 10px;
-  margin: 20px 0 16px;
+  margin: 12px 0 10px;
 }
 .score-num {
-  font-family: var(--serif); font-size: 52px;
+  font-family: var(--serif); font-size: 44px;
   color: #fff; line-height: 1;
 }
 .score-meta { display: flex; flex-direction: column; gap: 4px; }
@@ -364,23 +370,47 @@ h2.section-title em { font-style: italic; color: var(--red); }
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--red);
 }
-.score-sub { font-size: 12px; color: rgba(255,255,255,0.3); line-height: 1.4; }
+.score-sub { font-size: 11px; color: rgba(255,255,255,0.3); line-height: 1.4; }
 
 .outputs-callout {
-  margin-top: 24px;
-  padding: 24px 28px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 3px;
-  display: grid; grid-template-columns: 1fr 2fr; gap: 28px; align-items: center;
+  margin-top: 2px;
+  padding: 18px 20px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  display: grid; grid-template-columns: 72px 1fr; gap: 16px; align-items: start;
 }
 .oc-label {
   font-family: var(--mono); font-size: 9px;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: rgba(255,255,255,0.25); line-height: 1.6;
+  color: rgba(255,255,255,0.2); line-height: 1.6;
 }
-.oc-text { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; }
-.oc-text strong { color: rgba(255,255,255,0.75); font-weight: 500; }
+.oc-text { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; }
+.oc-text strong { color: rgba(255,255,255,0.7); font-weight: 500; }
+
+/* CERTIFICATE PREVIEW */
+.cert-preview-col { position: sticky; top: 72px; }
+.cert-preview-label {
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.2); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.cert-preview-label::before {
+  content: ''; display: inline-block;
+  width: 14px; height: 1px; background: rgba(255,255,255,0.2);
+}
+.cert-preview-frame {
+  width: 100%; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #faf9f6;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.cert-preview-frame iframe {
+  width: 860px; height: 1060px;
+  border: none; display: block;
+  transform-origin: top left;
+  pointer-events: none;
+}
 
 /* EVIDENCE PACKAGE */
 .evidence-section { background: var(--white); padding: 80px 40px; }
@@ -435,8 +465,8 @@ h2.section-title em { font-style: italic; color: var(--red); }
   .timeline-section { padding: 60px 24px; }
   .timeline-grid { grid-template-columns: 1fr 1fr; }
   .outputs-section { padding: 60px 24px; }
-  .outputs-grid { grid-template-columns: 1fr; }
-  .outputs-callout { grid-template-columns: 1fr; gap: 12px; }
+  .outputs-layout { grid-template-columns: 1fr; }
+  .cert-preview-col { display: none; }
   .evidence-section { padding: 60px 24px; }
   .evidence-grid { grid-template-columns: 1fr; gap: 32px; }
   .ev-item { grid-template-columns: 1fr; gap: 4px; }
@@ -675,32 +705,47 @@ h2.section-title em { font-style: italic; color: var(--red); }
     <p style="font-size:16px;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.75;max-width:580px;margin-bottom:0;">
       A certification determination tells you whether your system met the standard. A risk score tells you where it sits on the risk spectrum. Together they give your team something to act on and something to show.
     </p>
-    <div class="outputs-grid" style="margin-top:40px;">
-      <div class="output-card output-card-primary fade-up">
-        <div class="output-card-label">Risk score</div>
-        <div class="score-display">
-          <div class="score-num">3<span style="color:var(--red);font-size:32px;">L</span></div>
-          <div class="score-meta">
-            <span class="score-label">Quantified risk level</span>
-            <span class="score-sub">Reproducible. Documented.<br>Issued with every certificate.</span>
+    <div class="outputs-layout">
+
+      <!-- LEFT: cards + callout -->
+      <div>
+        <div class="outputs-grid">
+          <div class="output-card output-card-primary fade-up">
+            <div class="output-card-label">Risk score</div>
+            <div class="score-display">
+              <div class="score-num">3<span style="color:var(--red);font-size:28px;">L</span></div>
+              <div class="score-meta">
+                <span class="score-label">Quantified risk level</span>
+                <span class="score-sub">Reproducible. Documented.<br>Issued with every certificate.</span>
+              </div>
+            </div>
+            <div class="output-card-desc">A number derived from assessed failure modes, operational consequences, and human oversight effectiveness. <strong>Not a gut check.</strong> A reproducible score your leadership, regulators, and procurement officers can read without parsing a findings report.</div>
+          </div>
+          <div class="output-card fade-up">
+            <div class="output-card-label">Certification determination</div>
+            <div class="output-card-title">Certified, Conditionally Certified, or Not Certified</div>
+            <div class="output-card-desc">A formal determination document issued for every assessment regardless of outcome. States what was assessed, what was found, and what is required to maintain certificate validity. <strong>Not a vendor claim.</strong> A documented determination against a published standard.</div>
+          </div>
+          <div class="output-card fade-up">
+            <div class="output-card-label">Certificate (if certified)</div>
+            <div class="output-card-title">A record built to survive regulatory scrutiny</div>
+            <div class="output-card-desc">Classification level, requirement sets assessed, quantified risk score, issue date, validity period, and surveillance schedule. <strong>All four phases of documentation retained for a minimum of 10 years.</strong> Available for regulatory review.</div>
           </div>
         </div>
-        <div class="output-card-desc">A number derived from assessed failure modes, operational consequences, and human oversight effectiveness. <strong>Not a gut check. Not a general impression.</strong> A reproducible score your leadership, your regulators, and your procurement officers can read without needing to interpret a findings report.</div>
+        <div class="outputs-callout fade-up">
+          <div class="oc-label">Why both matter</div>
+          <div class="oc-text">Pass/fail tells you the threshold was cleared. The risk score tells you where the remaining exposure sits. <strong>For a regulator or procurement officer, the score is the answer the determination alone cannot provide.</strong></div>
+        </div>
       </div>
-      <div class="output-card fade-up">
-        <div class="output-card-label">Certification determination</div>
-        <div class="output-card-title">Certified, Conditionally Certified, or Not Certified</div>
-        <div class="output-card-desc">A formal determination document issued for every assessment regardless of outcome. States what was assessed, what was found, and what is required to maintain certificate validity. <strong>Not a vendor claim.</strong> A documented determination against a published standard.</div>
+
+      <!-- RIGHT: live certificate preview -->
+      <div class="cert-preview-col fade-up">
+        <div class="cert-preview-label">Certificate of conformance</div>
+        <div class="cert-preview-frame" id="certFrame">
+          <iframe src="certificate-template.html" id="certIframe" scrolling="no" title="SCL Certificate of Conformance preview"></iframe>
+        </div>
       </div>
-      <div class="output-card fade-up">
-        <div class="output-card-label">Certificate (if certified)</div>
-        <div class="output-card-title">A record built to survive regulatory scrutiny</div>
-        <div class="output-card-desc">System name and version, classification level, requirement sets assessed, quantified risk score, issue date, validity period, and surveillance schedule. <strong>All four phases of assessment documentation retained for a minimum of 10 years.</strong> Available for regulatory review when it is needed.</div>
-      </div>
-    </div>
-    <div class="outputs-callout fade-up">
-      <div class="oc-label">Why both matter</div>
-      <div class="oc-text">Pass/fail tells you the threshold was cleared. The risk score tells you by how much and where the remaining exposure sits. <strong>For a regulator reviewing an AI-assisted system, or a procurement officer evaluating a vendor, the score is the answer the determination alone cannot provide.</strong></div>
+
     </div>
   </div>
 </div>
@@ -844,6 +889,19 @@ phaseLinks.forEach(link => {
     link.classList.add('selected');
   });
 });
+
+// Scale certificate preview iframe to fit container
+function scaleCertPreview() {
+  const frame = document.getElementById('certFrame');
+  const iframe = document.getElementById('certIframe');
+  if (!frame || !iframe) return;
+  const containerWidth = frame.offsetWidth;
+  const scale = containerWidth / 860;
+  iframe.style.transform = 'scale(' + scale + ')';
+  frame.style.height = Math.round(1060 * scale) + 'px';
+}
+scaleCertPreview();
+window.addEventListener('resize', scaleCertPreview);
 </script>
 </body>
 </html>
