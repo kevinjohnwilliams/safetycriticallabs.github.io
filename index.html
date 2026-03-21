@@ -46,22 +46,22 @@ body {
 .global-nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   height: 56px;
-  background: var(--ink);
+  background: var(--white);
   display: flex; align-items: center;
   padding: 0 40px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid var(--rule);
 }
 
 .gn-wordmark {
   display: flex; align-items: center; gap: 10px;
-  text-decoration: none; color: #fff; flex-shrink: 0;
+  text-decoration: none; color: var(--ink); flex-shrink: 0;
 }
 
 .gn-icon { width: 26px; height: 26px; }
 
 .gn-text {
   font-family: var(--mono); font-size: 12px;
-  font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #fff;
+  font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink);
 }
 .gn-text em { color: var(--red); font-style: normal; }
 
@@ -73,12 +73,12 @@ body {
 .gn-links a {
   font-family: var(--mono); font-size: 10px;
   letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba(255,255,255,0.4); text-decoration: none;
+  color: var(--ink-3); text-decoration: none;
   padding: 6px 12px; border-radius: 2px;
   transition: color 0.15s, background 0.15s;
 }
-.gn-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
-.gn-links a.active { color: #fff; }
+.gn-links a:hover { color: var(--ink); background: var(--bg); }
+.gn-links a.active { color: var(--ink); }
 
 .gn-cta {
   background: var(--red) !important;
@@ -301,109 +301,146 @@ h2.section-title em { font-style: italic; color: var(--red); }
 <style>
 /* ─── HOME HERO ───────────────────────────────────────────── */
 .home-hero {
-  background: var(--ink);
+  background: var(--bg);
   min-height: calc(100vh - 56px);
   display: flex; align-items: center;
   padding: 80px 40px;
-  position: relative; overflow: hidden;
-}
-
-.home-hero::before {
-  display: none;
+  border-bottom: 1px solid var(--rule);
 }
 
 .home-hero-inner {
   max-width: 1140px; margin: 0 auto; width: 100%;
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 80px; align-items: center;
-  position: relative; z-index: 1;
 }
 
 .hero-eyebrow {
   font-family: var(--mono); font-size: 10px;
   letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--red); margin-bottom: 24px;
+  color: var(--ink-3); margin-bottom: 24px;
   display: flex; align-items: center; gap: 10px;
 }
-.hero-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--red); }
+.hero-eyebrow::before { content: ''; display: inline-block; width: 16px; height: 1px; background: var(--red); }
 
 .home-hero h1 {
   font-family: var(--serif);
-  font-size: clamp(52px, 6vw, 80px);
-  font-weight: 400; line-height: 1.04;
-  color: #fff; letter-spacing: -0.015em;
-  margin-bottom: 32px;
+  font-size: clamp(44px, 5.5vw, 72px);
+  font-weight: 400; line-height: 1.06;
+  color: var(--ink); letter-spacing: -0.015em;
+  margin-bottom: 28px;
 }
 .home-hero h1 em { font-style: italic; color: var(--red); }
 
 .hero-body {
-  font-size: 18px; color: rgba(255,255,255,0.5);
+  font-size: 17px; color: var(--ink-2);
   font-weight: 300; line-height: 1.75; margin-bottom: 36px;
-  max-width: 480px;
+  max-width: 460px;
 }
 
-.hero-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
-
-/* right col */
-.hero-right { display: flex; flex-direction: column; gap: 16px; }
-
-.hero-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 4px; padding: 22px 24px;
-  text-decoration: none; display: block;
-  transition: border-color 0.2s, background 0.2s;
-}
-.hero-card:hover {
-  border-color: rgba(200,39,45,0.45);
-  background: rgba(200,39,45,0.05);
+/* ─── CERTIFICATE DISPLAY ─────────────────────────────────── */
+.cert-stage {
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px 0;
 }
 
-.hc-label {
-  font-family: var(--mono); font-size: 9px;
+.cert-doc {
+  background: #fff;
+  border: 1px solid #d4cfc4;
+  width: 100%; max-width: 400px;
+  padding: 28px 32px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.09);
+  font-family: var(--serif);
+}
+
+.cert-doc::before {
+  content: ''; position: absolute; inset: 8px;
+  border: 1px solid #e8e4dc; pointer-events: none;
+}
+
+.cert-corner { position: absolute; width: 18px; height: 18px; }
+.cert-corner svg { width: 100%; height: 100%; }
+.cert-corner-tl { top: 10px; left: 10px; }
+.cert-corner-tr { top: 10px; right: 10px; transform: scaleX(-1); }
+.cert-corner-bl { bottom: 10px; left: 10px; transform: scaleY(-1); }
+.cert-corner-br { bottom: 10px; right: 10px; transform: scale(-1); }
+
+.cert-top-rule {
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, #c4a96b, #d4cfc4, #c4a96b, transparent);
+  margin-bottom: 16px;
+}
+
+.cert-doc-eyebrow {
+  font-family: var(--mono); font-size: 7px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: #8b7340; text-align: center; margin-bottom: 10px;
+}
+
+.cert-doc-title {
+  font-size: 16px; font-weight: 300; line-height: 1.2;
+  text-align: center; color: #0a0a0f; margin-bottom: 4px;
+}
+.cert-doc-title em { font-style: italic; }
+
+.cert-doc-sub {
+  font-family: var(--mono); font-size: 7.5px;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--red); margin-bottom: 6px;
-}
-.hc-title { font-size: 15px; font-weight: 500; color: #fff; margin-bottom: 6px; line-height: 1.3; }
-.hc-body { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.55; }
-
-.hc-arrow {
-  float: right; color: rgba(255,255,255,0.2);
-  font-size: 16px; margin-top: -2px;
-  transition: color 0.15s;
-}
-.hero-card:hover .hc-arrow { color: var(--red); }
-
-/* ─── STATS ───────────────────────────────────────────────── */
-.stats-strip {
-  background: rgba(255,255,255,0.03);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 0 40px;
+  color: #6b6b80; text-align: center; margin-bottom: 16px;
 }
 
-.stats-inner {
-  max-width: 1140px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  border-left: 1px solid rgba(255,255,255,0.06);
+.cert-field-block {
+  background: #f7f5f0; border: 1px solid #e8e4dc;
+  padding: 12px 16px; text-align: center; margin-bottom: 12px;
+}
+.cert-field-label {
+  font-family: var(--mono); font-size: 7px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: #6b6b80; margin-bottom: 4px;
+}
+.cert-field-value { font-size: 14px; font-weight: 500; color: #0a0a0f; }
+
+.cert-data-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  border: 1px solid #e8e4dc; margin-bottom: 12px;
+}
+.cert-data-cell {
+  padding: 10px; border-right: 1px solid #e8e4dc;
+}
+.cert-data-cell:last-child { border-right: none; }
+.cert-data-cell-label {
+  font-family: var(--mono); font-size: 6.5px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: #6b6b80; margin-bottom: 4px;
+}
+.cert-data-cell-value { font-size: 10px; font-weight: 500; color: #0a0a0f; line-height: 1.3; }
+.cert-data-cell-value.certified { color: #3B6D11; }
+
+.cert-thin-rule { width: 100%; height: 1px; background: #e8e4dc; margin: 12px 0; }
+
+.cert-det-text {
+  font-size: 7.5px; color: #2a2a3a; line-height: 1.7;
+  text-align: center; font-weight: 300; padding: 0 4px;
 }
 
-.stat-block {
-  padding: 36px 28px;
-  border-right: 1px solid rgba(255,255,255,0.06);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+.cert-sig-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 20px; margin-top: 16px;
+}
+.cert-sig-line { height: 1px; background: #0a0a0f; margin-bottom: 5px; }
+.cert-sig-name { font-size: 9px; font-weight: 500; color: #0a0a0f; }
+.cert-sig-role {
+  font-family: var(--mono); font-size: 6.5px;
+  letter-spacing: 0.12em; text-transform: uppercase; color: #6b6b80;
 }
 
-.stat-num {
-  font-family: var(--serif); font-size: 44px;
-  color: #fff; line-height: 1; margin-bottom: 8px;
+.cert-foot-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 14px; padding-top: 10px; border-top: 1px solid #e8e4dc;
 }
-.stat-num em { color: var(--red); font-style: normal; }
-
-.stat-label {
-  font-family: var(--mono); font-size: 10px;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba(255,255,255,0.3); line-height: 1.4;
+.cert-foot-text {
+  font-family: var(--mono); font-size: 6.5px;
+  letter-spacing: 0.08em; color: #6b6b80;
 }
 
 /* ─── WHAT WE DO ──────────────────────────────────────────── */
@@ -418,191 +455,109 @@ h2.section-title em { font-style: italic; color: var(--red); }
 }
 .what-body p strong { color: var(--ink); font-weight: 500; }
 
-.analogy-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
-
-.atag {
-  font-family: var(--mono); font-size: 10px;
-  letter-spacing: 0.07em; text-transform: uppercase;
-  border: 1px solid var(--rule); border-radius: 2px;
-  padding: 6px 12px; color: var(--ink-3); background: transparent;
-  cursor: default;
+.nav-cards {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--rule);
 }
-.atag.highlight { color: var(--red); border-color: rgba(200,39,45,0.25); background: var(--red-lt); }
 
-.page-preview-cards { display: flex; flex-direction: column; gap: 12px; }
-
-.ppc {
-  background: var(--white); border: 1px solid var(--rule);
-  border-radius: 4px; padding: 20px 22px;
-  display: flex; gap: 20px; align-items: flex-start;
+.nav-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; background: var(--white);
+  border-bottom: 1px solid var(--rule);
   text-decoration: none; color: inherit;
-  transition: border-color 0.2s, transform 0.2s;
+  transition: background 0.15s;
 }
-.ppc:hover { border-color: var(--red); transform: translateX(4px); }
+.nav-card:last-child { border-bottom: none; }
+.nav-card:hover { background: var(--bg); }
 
-.ppc-num {
-  font-family: var(--mono); font-size: 11px;
-  color: var(--red); flex-shrink: 0; padding-top: 2px;
-  min-width: 28px;
+.nav-card-num {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--red); flex-shrink: 0; min-width: 24px;
 }
-.ppc-body { flex: 1; }
-.ppc-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: var(--ink); }
-.ppc-desc { font-size: 12px; color: var(--ink-3); line-height: 1.55; }
-.ppc-arrow { color: var(--rule); font-size: 14px; flex-shrink: 0; padding-top: 2px; transition: color 0.15s; }
-.ppc:hover .ppc-arrow { color: var(--red); }
+.nav-card-body { flex: 1; }
+.nav-card-title { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+.nav-card-desc { font-size: 12px; color: var(--ink-3); line-height: 1.5; }
+.nav-card-arrow { color: var(--rule); font-size: 13px; flex-shrink: 0; transition: color 0.15s; }
+.nav-card:hover .nav-card-arrow { color: var(--red); }
 
-/* ─── URGENCY BAND ────────────────────────────────────────── */
-.urgency-band {
-  background: var(--ink);
-  padding: 80px 40px;
-}
-
-.ub-inner {
-  max-width: 1140px; margin: 0 auto;
-}
-
-.ub-header {
+/* ─── WHAT CERTIFICATION PRODUCES ────────────────────────── */
+.produces-header {
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 60px; align-items: end; margin-bottom: 48px;
+  gap: 60px; align-items: end; margin-bottom: 40px;
 }
 
-.ub-header .section-eyebrow { color: rgba(255,255,255,0.3); }
-.ub-header .section-eyebrow::before { background: rgba(255,255,255,0.3); }
-.ub-header h2.section-title { color: #fff; }
-
-.ub-lead {
-  font-size: 16px; color: rgba(255,255,255,0.45);
+.produces-lead {
+  font-size: 16px; color: var(--ink-2);
   font-weight: 300; line-height: 1.75;
-  border-left: 2px solid var(--red); padding-left: 20px;
-  align-self: end;
+  border-left: 2px solid var(--rule);
+  padding-left: 20px; align-self: end;
 }
 
-.ub-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+.produces-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--rule);
+  border: 1px solid var(--rule);
 }
 
-.ub-item {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
+.produces-card {
+  background: var(--white);
   padding: 28px 24px;
-  transition: background 0.2s, border-color 0.2s;
-}
-.ub-item:hover {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(200,39,45,0.3);
 }
 
-.ub-std {
+.produces-card-label {
   font-family: var(--mono); font-size: 9px;
-  letter-spacing: 0.12em; text-transform: uppercase;
+  letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--red); margin-bottom: 10px;
 }
-.ub-title { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); margin-bottom: 6px; line-height: 1.35; }
-.ub-desc { font-size: 13px; color: rgba(255,255,255,0.35); line-height: 1.6; }
-
-.ub-cta { margin-top: 40px; display: flex; gap: 12px; }
-
-/* ─── FOUNDER PREVIEW ─────────────────────────────────────── */
-.founder-preview {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+.produces-card-title {
+  font-size: 14px; font-weight: 500;
+  color: var(--ink); margin-bottom: 8px; line-height: 1.35;
 }
-
-.fp-left p {
-  font-size: 16px; color: var(--ink-2); line-height: 1.8;
-  font-weight: 300; margin-bottom: 18px;
-}
-.fp-left p strong { color: var(--ink); font-weight: 500; }
-
-.fp-quote {
-  font-family: var(--serif); font-size: 20px; font-style: italic;
-  color: var(--ink-2); line-height: 1.55;
-  border-left: 2px solid var(--red); padding-left: 20px;
-  margin: 28px 0;
-}
-
-.fp-byline {
-  font-family: var(--mono); font-size: 10px;
-  letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3);
-  margin-top: 20px; line-height: 1.7;
-}
-
-.fp-cards { display: flex; flex-direction: column; gap: 12px; }
-
-.fp-card {
-  background: var(--white); border: 1px solid var(--rule);
-  border-radius: 4px; padding: 22px 24px;
-}
-.fp-card-org {
-  font-family: var(--mono); font-size: 9px;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--red); margin-bottom: 6px;
-}
-.fp-card-role { font-size: 14px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
-.fp-card-desc { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
-.fp-card-award {
-  display: inline-block; margin-top: 10px;
-  font-family: var(--mono); font-size: 9px;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  background: var(--red-lt); border: 1px solid rgba(200,39,45,0.2);
-  color: var(--red); padding: 4px 10px; border-radius: 2px;
-}
+.produces-card-desc { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
 
 /* ─── HOME CTA ────────────────────────────────────────────── */
 .home-cta {
-  background: var(--red);
+  background: var(--ink);
   padding: 72px 40px;
   text-align: center;
 }
 
 .home-cta h2 {
   font-family: var(--serif);
-  font-size: clamp(32px, 3.5vw, 48px);
+  font-size: clamp(28px, 3vw, 40px);
   color: #fff; font-weight: 400;
   margin-bottom: 16px; line-height: 1.15;
 }
 
 .home-cta p {
-  font-size: 17px; color: rgba(255,255,255,0.7);
-  font-weight: 300; max-width: 500px;
-  margin: 0 auto 32px; line-height: 1.7;
+  font-size: 16px; color: rgba(255,255,255,0.45);
+  font-weight: 300; max-width: 480px;
+  margin: 0 auto 32px; line-height: 1.75;
 }
 
-.home-cta-row { display: flex; gap: 12px; justify-content: center; }
-
 .btn-white {
-  background: #fff; color: var(--red);
+  display: inline-block;
+  background: #fff; color: var(--ink);
   font-family: var(--mono); font-size: 11px;
   letter-spacing: 0.1em; text-transform: uppercase;
   padding: 13px 28px; border-radius: 2px;
   text-decoration: none; transition: all 0.15s;
   font-weight: 500;
 }
-.btn-white:hover { background: var(--ink); color: #fff; }
-
-.btn-ghost-white {
-  border: 1px solid rgba(255,255,255,0.4); color: rgba(255,255,255,0.8);
-  font-family: var(--mono); font-size: 11px;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 13px 28px; border-radius: 2px;
-  text-decoration: none; transition: all 0.15s;
-}
-.btn-ghost-white:hover { border-color: #fff; color: #fff; }
+.btn-white:hover { background: var(--bg); }
 
 /* RESPONSIVE */
 @media (max-width: 880px) {
   .home-hero { padding: 60px 24px; }
   .home-hero-inner { grid-template-columns: 1fr; gap: 40px; }
-  .stats-strip { padding: 0 24px; }
-  .stats-inner { grid-template-columns: 1fr 1fr; }
+  .cert-stage { padding: 0; }
   .what-grid { grid-template-columns: 1fr; gap: 40px; }
-  .ub-header { grid-template-columns: 1fr; gap: 20px; }
-  .ub-grid { grid-template-columns: 1fr; }
-  .founder-preview { grid-template-columns: 1fr; gap: 40px; }
-  .urgency-band { padding: 60px 24px; }
+  .produces-header { grid-template-columns: 1fr; gap: 20px; }
+  .produces-grid { grid-template-columns: 1fr; }
   .home-cta { padding: 60px 24px; }
 }
 @media (max-width: 580px) {
-  .stats-inner { grid-template-columns: 1fr 1fr; }
+  .cert-doc { max-width: 100%; }
 }
 </style>
 </head>
@@ -612,10 +567,10 @@ h2.section-title em { font-style: italic; color: var(--red); }
 <nav class="global-nav">
   <a href="index.html" class="gn-wordmark">
     <svg class="gn-icon" viewBox="0 0 26 26" fill="none">
-      <rect x="1" y="1" width="24" height="24" rx="2" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+      <rect x="1" y="1" width="24" height="24" rx="2" stroke="var(--rule)" stroke-width="1.5"/>
       <line x1="6" y1="13" x2="20" y2="13" stroke="#C8272D" stroke-width="1.5"/>
       <line x1="13" y1="6" x2="13" y2="20" stroke="#C8272D" stroke-width="1.5"/>
-      <circle cx="13" cy="13" r="2.5" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+      <circle cx="13" cy="13" r="2.5" stroke="var(--rule)" stroke-width="1.5"/>
     </svg>
     <span class="gn-text"><em>Safety Critical</em> Labs</span>
   </a>
@@ -630,72 +585,92 @@ h2.section-title em { font-style: italic; color: var(--red); }
 </nav>
 
 <!-- HERO -->
-<div style="background: var(--ink);">
+<div style="background: var(--bg);">
   <section class="home-hero">
     <div class="home-hero-inner">
       <div>
         <div class="hero-eyebrow">AI Certification Authority &middot; Est. 2025</div>
         <h1>
-          The standard<br>
-          AI in critical<br>
-          systems<br>
-          <em>has been missing.</em>
+          AI Certification<br>
+          for <em>Safety-Critical</em><br>
+          Systems
         </h1>
         <p class="hero-body">
-          Safety Critical Labs certifies AI systems operating in environments where failure costs lives. We are a certification authority, not a consultancy. We issue formal determinations against a published standard. Pass, conditional, or fail.
+          Safety Critical Labs evaluates AI systems operating in aerospace, aviation, medical, and automotive environments. Assessments are conducted against a published standard. A formal determination is issued and placed on record.
         </p>
-        <div class="hero-cta-row">
-          <a href="framework.html" class="btn btn-red">View the framework</a>
-        </div>
+        <a href="contact.html" class="btn btn-solid">Begin an assessment &rarr;</a>
       </div>
 
-      <div class="hero-right">
-        <a href="framework.html" class="hero-card">
-          <div class="hc-label">The framework</div>
-          <span class="hc-arrow">&rarr;</span>
-          <div class="hc-title">9 requirement areas. Every AI failure mode covered.</div>
-          <div class="hc-body">A publicly available, citable standard built from the ground up for AI in safety-critical operations.</div>
-        </a>
-        <a href="process.html" class="hero-card">
-          <div class="hc-label">Certification process</div>
-          <span class="hc-arrow">&rarr;</span>
-          <div class="hc-title">Four phases from assessment to formal determination.</div>
-          <div class="hc-body">A structured audit that produces a certificate stating exactly what was assessed, at which classification level, and against which framework version.</div>
-        </a>
-        <a href="expertise.html" class="hero-card">
-          <div class="hc-label">Our expertise</div>
-          <span class="hc-arrow">&rarr;</span>
-          <div class="hc-title">Government &amp; automotive industry experience.</div>
-          <div class="hc-body">The framework was not adapted from a governance template. It was built by someone with hands-on experience in government human spaceflight and automotive manufacturing AI systems.</div>
-        </a>
-        <a href="markets.html" class="hero-card">
-          <div class="hc-label">Markets we serve</div>
-          <span class="hc-arrow">&rarr;</span>
-          <div class="hc-title">Aerospace, aviation, medical &amp; automotive.</div>
-          <div class="hc-body">Algorithm-agnostic and domain-applicable. Certification follows AI wherever the consequence of failure is measured in lives.</div>
-        </a>
+      <div class="cert-stage">
+        <div class="cert-doc">
+
+          <div class="cert-corner cert-corner-tl">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M2 30 L2 2 L30 2" stroke="#c4a96b" stroke-width="1" fill="none"/><path d="M2 16 L8 10 M2 24 L8 18" stroke="#c4a96b" stroke-width="0.5" fill="none"/></svg>
+          </div>
+          <div class="cert-corner cert-corner-tr">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M2 30 L2 2 L30 2" stroke="#c4a96b" stroke-width="1" fill="none"/><path d="M2 16 L8 10 M2 24 L8 18" stroke="#c4a96b" stroke-width="0.5" fill="none"/></svg>
+          </div>
+          <div class="cert-corner cert-corner-bl">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M2 30 L2 2 L30 2" stroke="#c4a96b" stroke-width="1" fill="none"/><path d="M2 16 L8 10 M2 24 L8 18" stroke="#c4a96b" stroke-width="0.5" fill="none"/></svg>
+          </div>
+          <div class="cert-corner cert-corner-br">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M2 30 L2 2 L30 2" stroke="#c4a96b" stroke-width="1" fill="none"/><path d="M2 16 L8 10 M2 24 L8 18" stroke="#c4a96b" stroke-width="0.5" fill="none"/></svg>
+          </div>
+
+          <div class="cert-top-rule"></div>
+          <div class="cert-doc-eyebrow">Certificate of Conformance</div>
+          <div class="cert-doc-title">AI Requirements Framework<br><em>Assessment Determination</em></div>
+          <div class="cert-doc-sub">Safety Critical Labs &middot; Certification Authority</div>
+
+          <div class="cert-field-block">
+            <div class="cert-field-label">Certified System</div>
+            <div class="cert-field-value">[System Name]</div>
+          </div>
+
+          <div class="cert-data-grid">
+            <div class="cert-data-cell">
+              <div class="cert-data-cell-label">Classification</div>
+              <div class="cert-data-cell-value">Safety-Critical AI</div>
+            </div>
+            <div class="cert-data-cell">
+              <div class="cert-data-cell-label">Determination</div>
+              <div class="cert-data-cell-value certified">Certified</div>
+            </div>
+            <div class="cert-data-cell">
+              <div class="cert-data-cell-label">Valid Through</div>
+              <div class="cert-data-cell-value">Annual surveillance</div>
+            </div>
+          </div>
+
+          <div class="cert-thin-rule"></div>
+
+          <div class="cert-det-text">
+            Having reviewed the evidence package and conducted a technical assessment, Safety Critical Labs determines that the system meets all applicable requirements of the SCL AI Requirements Framework v1.0 at the Safety-Critical classification level.
+          </div>
+
+          <div class="cert-sig-row">
+            <div>
+              <div class="cert-sig-line"></div>
+              <div class="cert-sig-name">Lead Assessor</div>
+              <div class="cert-sig-role">Safety Critical Labs</div>
+            </div>
+            <div>
+              <div class="cert-sig-line"></div>
+              <div class="cert-sig-name">Principal</div>
+              <div class="cert-sig-role">Safety Critical Labs</div>
+            </div>
+          </div>
+
+          <div class="cert-foot-row">
+            <div class="cert-foot-text">Certificate No. SCL-CERT-[YYYY]-[NNN]</div>
+            <div class="cert-foot-text">Framework v1.0</div>
+            <div class="cert-foot-text">SCL Certified</div>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- STATS -->
-  <div class="stats-strip" style="background:var(--ink);">
-    <div class="stats-inner">
-      <div class="stat-block">
-        <div class="stat-num">9</div>
-        <div class="stat-label">Requirement areas covering every AI-specific failure mode</div>
-      </div>
-      <div class="stat-block">
-        <div class="stat-num">v<em>1.0</em></div>
-        <div class="stat-label">Published Feb 2025 with citable DOI</div>
-      </div>
-      <div class="stat-block">
-        <div class="stat-num">4</div>
-        <div class="stat-label">Structured phases from assessment to formal determination</div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- WHAT WE DO -->
 <section class="page-section" style="background: var(--white);">
@@ -703,61 +678,53 @@ h2.section-title em { font-style: italic; color: var(--red); }
     <div class="what-grid">
       <div>
         <div class="section-eyebrow">What we do</div>
-        <h2 class="section-title">A certification authority.<br><em>Not a consulting firm.</em></h2>
+        <h2 class="section-title">A certification authority<br>for <em>AI systems.</em></h2>
         <div class="what-body">
           <p>
-            Safety Critical Labs is a <strong>certification authority</strong>. The product is the mark. The mark is only valuable if the standard behind it is rigorous and the authority granting it is trusted. The framework was built by a practitioner with direct experience certifying AI in human-rated and safety-critical programs across government and industry.
+            Safety Critical Labs conducts structured assessments of AI systems against the SCL AI Requirements Framework. A formal determination is issued at a defined classification level with documented findings on record.
           </p>
           <p>
-            We evaluate. We do not recommend, consult, or advise. We certify against a defined standard that anyone can read, audit, and challenge. A determination is issued against a specific version of the framework, at a defined classification level, with documented findings on record.
+            Assessments are conducted against a <strong>published, citable standard</strong>. The framework is publicly available, versioned, and open to review. Anyone can read it, audit it, and challenge it.
           </p>
           <p>
-            A Safety Critical Labs certificate states what was assessed, against which version of the framework, at which classification level, and what was found. It does not claim a system is safe. It claims the system was rigorously evaluated against a published standard with a formal, reproducible methodology.
+            A certificate states what was assessed, against which version of the framework, at which classification level, and what was found. It records that a system was formally evaluated against a defined standard with a reproducible methodology.
           </p>
-        </div>
-        <div class="analogy-row">
-          <span class="atag highlight">SCL AI Systems</span>
-          <span class="atag">Aerospace</span>
-          <span class="atag">Aviation</span>
-          <span class="atag">Medical Devices</span>
-          <span class="atag">Automotive</span>
         </div>
       </div>
       <div>
-        <div class="section-eyebrow">Where to go next</div>
-        <p style="font-size:14px;color:var(--ink-3);font-weight:300;line-height:1.7;margin-bottom:20px;max-width:420px;">New to SCL? Start with the Framework to understand the standard, then follow the path from there.</p>
-        <div class="page-preview-cards">
-          <a href="framework.html" class="ppc">
-            <span class="ppc-num">01</span>
-            <div class="ppc-body">
-              <div class="ppc-title">The Framework</div>
-              <div class="ppc-desc">Nine verifiable requirement areas covering every AI-specific failure mode not addressed by existing standards.</div>
+        <div class="section-eyebrow">Explore</div>
+        <div class="nav-cards">
+          <a href="framework.html" class="nav-card">
+            <span class="nav-card-num">01</span>
+            <div class="nav-card-body">
+              <div class="nav-card-title">The Framework</div>
+              <div class="nav-card-desc">Nine requirement areas covering AI-specific failure modes.</div>
             </div>
-            <span class="ppc-arrow">&rarr;</span>
+            <span class="nav-card-arrow">&rarr;</span>
           </a>
-          <a href="process.html" class="ppc">
-            <span class="ppc-num">02</span>
-            <div class="ppc-body">
-              <div class="ppc-title">Certification Process</div>
-              <div class="ppc-desc">Four-phase process from applicability determination to formal certificate issuance.</div>
+          <a href="process.html" class="nav-card">
+            <span class="nav-card-num">02</span>
+            <div class="nav-card-body">
+              <div class="nav-card-title">Certification Process</div>
+              <div class="nav-card-desc">Four phases from applicability determination to certificate issuance.</div>
             </div>
-            <span class="ppc-arrow">&rarr;</span>
+            <span class="nav-card-arrow">&rarr;</span>
           </a>
-          <a href="expertise.html" class="ppc">
-            <span class="ppc-num">03</span>
-            <div class="ppc-body">
-              <div class="ppc-title">Our Expertise</div>
-              <div class="ppc-desc">Government human spaceflight, automotive industry &amp; university research. The credentials behind the standard.</div>
+          <a href="expertise.html" class="nav-card">
+            <span class="nav-card-num">03</span>
+            <div class="nav-card-body">
+              <div class="nav-card-title">Our Expertise</div>
+              <div class="nav-card-desc">The practitioner background behind the standard.</div>
             </div>
-            <span class="ppc-arrow">&rarr;</span>
+            <span class="nav-card-arrow">&rarr;</span>
           </a>
-          <a href="markets.html" class="ppc">
-            <span class="ppc-num">04</span>
-            <div class="ppc-body">
-              <div class="ppc-title">Markets We Serve</div>
-              <div class="ppc-desc">Aerospace, aviation, medical devices, and automotive wherever AI failure is measured in lives.</div>
+          <a href="markets.html" class="nav-card">
+            <span class="nav-card-num">04</span>
+            <div class="nav-card-body">
+              <div class="nav-card-title">Markets We Serve</div>
+              <div class="nav-card-desc">Aerospace, aviation, medical devices, and automotive.</div>
             </div>
-            <span class="ppc-arrow">&rarr;</span>
+            <span class="nav-card-arrow">&rarr;</span>
           </a>
         </div>
       </div>
@@ -765,63 +732,56 @@ h2.section-title em { font-style: italic; color: var(--red); }
   </div>
 </section>
 
-<!-- WHAT YOU GET -->
-<div class="urgency-band" style="background: var(--bg);">
-  <div class="ub-inner">
-    <div class="ub-header">
+<!-- WHAT CERTIFICATION PRODUCES -->
+<section class="page-section" style="background: var(--bg);">
+  <div class="section-inner">
+    <div class="produces-header">
       <div>
-        <div class="section-eyebrow">What certification gives you</div>
-        <h2 class="section-title">Your AI system is a<br><em>black box. We open it.</em></h2>
+        <div class="section-eyebrow">What certification produces</div>
+        <h2 class="section-title">A formal record.<br><em>Issued on determination.</em></h2>
       </div>
-      <p class="ub-lead" style="color:var(--ink-2); border-left: 2px solid var(--red); padding-left: 20px;">
-        If you are uncertain about what your AI system is actually doing, or whether it is safe to operate in a critical environment, that uncertainty has a cost. Certification replaces it with a documented, defensible answer.
-      </p>
+      <p class="produces-lead">Each certificate records the system assessed, the framework version applied, the classification level, and the determination reached. The findings remain on record.</p>
     </div>
-    <div class="ub-grid">
-      <div class="ub-item fade-up" style="background:var(--white); border-color:var(--rule);">
-        <div class="ub-std">Black box visibility</div>
-        <div class="ub-title" style="color:var(--ink);">Know what your AI is actually doing</div>
-        <div class="ub-desc" style="color:var(--ink-2);">Our assessment methodology systematically examines model behavior, output confidence, and decision traceability. You get visibility into the system that documentation alone cannot provide.</div>
+    <div class="produces-grid">
+      <div class="produces-card fade-up">
+        <div class="produces-card-label">Documented findings</div>
+        <div class="produces-card-title">A complete assessment record</div>
+        <div class="produces-card-desc">Every assessment produces a formal findings document covering all nine requirement areas at the applicable classification level.</div>
       </div>
-      <div class="ub-item fade-up" style="background:var(--white); border-color:var(--rule);">
-        <div class="ub-std">Quantified risk</div>
-        <div class="ub-title" style="color:var(--ink);">A scored risk level, not a gut check</div>
-        <div class="ub-desc" style="color:var(--ink-2);">Using a structured risk consequence scoring methodology, we calculate a quantified risk level for your AI system. Not a subjective opinion. A reproducible, defensible number derived from a rigorous scoring framework used in safety-critical programs.</div>
+      <div class="produces-card fade-up">
+        <div class="produces-card-label">Classification level</div>
+        <div class="produces-card-title">Consequence-based classification</div>
+        <div class="produces-card-desc">Systems are classified by consequence of failure using a structured likelihood-versus-consequence methodology.</div>
       </div>
-      <div class="ub-item fade-up" style="background:var(--white); border-color:var(--rule);">
-        <div class="ub-std">Regulatory confidence</div>
-        <div class="ub-title" style="color:var(--ink);">Something to show when someone asks</div>
-        <div class="ub-desc" style="color:var(--ink-2);">Whether it is a regulator, a procurement officer, or your own leadership, an SCL certificate is a formal record that your system was rigorously assessed against a published standard. Not a vendor claim. A determination.</div>
+      <div class="produces-card fade-up">
+        <div class="produces-card-label">Framework version</div>
+        <div class="produces-card-title">Assessed against a published standard</div>
+        <div class="produces-card-desc">Every determination references a specific framework version. The standard is publicly available and open to review by any party.</div>
       </div>
-      <div class="ub-item fade-up" style="background:var(--white); border-color:var(--rule);">
-        <div class="ub-std">Drift detection</div>
-        <div class="ub-title" style="color:var(--ink);">Assurance that holds after deployment</div>
-        <div class="ub-desc" style="color:var(--ink-2);">AI systems change behavior over time. Certification does not stop at launch. Continuous validation requirements ensure your system is re-assessed when it matters, not just when it is convenient.</div>
+      <div class="produces-card fade-up">
+        <div class="produces-card-label">Surveillance requirement</div>
+        <div class="produces-card-title">Validity tied to configuration</div>
+        <div class="produces-card-desc">Certification is valid while the assessed configuration is maintained. Annual surveillance confirms continued compliance.</div>
       </div>
-      <div class="ub-item fade-up" style="background:var(--white); border-color:var(--rule);">
-        <div class="ub-std">Failure mode coverage</div>
-        <div class="ub-title" style="color:var(--ink);">Every AI-specific risk addressed</div>
-        <div class="ub-desc" style="color:var(--ink-2);">Hallucination, out-of-distribution inputs, adversarial vulnerability, model drift, bias. Nine structured requirement areas cover the failure modes that make AI in critical systems genuinely dangerous.</div>
+      <div class="produces-card fade-up">
+        <div class="produces-card-label">Formal determination</div>
+        <div class="produces-card-title">Three outcomes, documented regardless</div>
+        <div class="produces-card-desc">Certified, Conditionally Certified, or Not Certified. Each determination is documented and placed on record regardless of outcome.</div>
       </div>
-      <div class="ub-item fade-up" style="background:var(--white); border-color:var(--rule);">
-        <div class="ub-std">Human override assurance</div>
-        <div class="ub-title" style="color:var(--ink);">You stay in control</div>
-        <div class="ub-desc" style="color:var(--ink-2);">Our human-AI teaming requirements define explicit authority limits and verified override capability so AI augments your team's decisions without silently replacing them.</div>
+      <div class="produces-card fade-up">
+        <div class="produces-card-label">Scope of assessment</div>
+        <div class="produces-card-title">Nine requirement areas assessed</div>
+        <div class="produces-card-desc">Data partitioning, bias detection, test coverage, continuous validation, hallucination prevention, OOD detection, adversarial robustness, explainability, and human-AI teaming.</div>
       </div>
-    </div>
-    <div class="ub-cta">
-      <a href="process.html" class="btn btn-solid">How certification works &rarr;</a>
     </div>
   </div>
-</div>
+</section>
 
 <!-- HOME CTA -->
 <div class="home-cta">
-  <h2>Ready to certify your AI system?</h2>
-  <p>Whether you are preparing for regulatory scrutiny or building responsible AI practices into your development lifecycle, we can help.</p>
-  <div class="home-cta-row">
-    <a href="contact.html" class="btn-white">Get Certified</a>
-  </div>
+  <h2>Begin a certification assessment.</h2>
+  <p>Contact Safety Critical Labs to discuss your system, the applicable classification level, and the assessment process.</p>
+  <a href="contact.html" class="btn-white">Get in touch &rarr;</a>
 </div>
 
 <!-- FOOTER -->
