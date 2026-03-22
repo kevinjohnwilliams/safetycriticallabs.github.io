@@ -44,22 +44,22 @@ body {
 .global-nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   height: 56px;
-  background: var(--white);
+  background: var(--ink);
   display: flex; align-items: center;
   padding: 0 40px;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .gn-wordmark {
   display: flex; align-items: center; gap: 10px;
-  text-decoration: none; color: var(--ink); flex-shrink: 0;
+  text-decoration: none; color: #fff; flex-shrink: 0;
 }
 
 .gn-icon { width: 26px; height: 26px; }
 
 .gn-text {
   font-family: var(--mono); font-size: 12px;
-  font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink);
+  font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #fff;
 }
 .gn-text em { color: var(--red); font-style: normal; }
 
@@ -71,12 +71,12 @@ body {
 .gn-links a {
   font-family: var(--mono); font-size: 10px;
   letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--ink-3); text-decoration: none;
+  color: rgba(255,255,255,0.4); text-decoration: none;
   padding: 6px 12px; border-radius: 2px;
   transition: color 0.15s, background 0.15s;
 }
-.gn-links a:hover { color: var(--ink); background: var(--bg); }
-.gn-links a.active { color: var(--ink); }
+.gn-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+.gn-links a.active { color: #fff; }
 
 .gn-cta {
   background: var(--red) !important;
@@ -93,9 +93,9 @@ body {
 
 /* ─── INNER PAGE HERO ─────────────────────────────────────── */
 .inner-hero {
-  background: var(--bg);
+  background: var(--ink);
   padding: 72px 40px 64px;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   position: relative; overflow: hidden;
 }
 
@@ -111,25 +111,25 @@ body {
 .inner-hero-breadcrumb {
   font-family: var(--mono); font-size: 10px;
   letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--ink-3); margin-bottom: 12px;
+  color: rgba(255,255,255,0.3); margin-bottom: 12px;
   display: flex; align-items: center; gap: 8px;
 }
-.inner-hero-breadcrumb a { color: var(--ink-3); text-decoration: none; }
-.inner-hero-breadcrumb a:hover { color: var(--ink-2); }
-.inner-hero-breadcrumb span { color: var(--rule); }
+.inner-hero-breadcrumb a { color: rgba(255,255,255,0.3); text-decoration: none; }
+.inner-hero-breadcrumb a:hover { color: rgba(255,255,255,0.6); }
+.inner-hero-breadcrumb span { color: rgba(255,255,255,0.15); }
 
 .inner-hero h1 {
   font-family: var(--serif);
   font-size: clamp(38px, 4.5vw, 60px);
   font-weight: 400; line-height: 1.1;
-  color: var(--ink); letter-spacing: -0.01em;
+  color: #fff; letter-spacing: -0.01em;
 }
 .inner-hero h1 em { font-style: italic; color: var(--red); }
 
 .inner-hero-lead {
-  font-size: 17px; color: var(--ink-2);
+  font-size: 17px; color: rgba(255,255,255,0.5);
   font-weight: 300; line-height: 1.75;
-  border-left: 2px solid var(--rule); padding-left: 20px;
+  border-left: 2px solid var(--red); padding-left: 20px;
   align-self: end;
 }
 
@@ -808,14 +808,15 @@ h2.section-title em { font-style: italic; color: var(--red); }
 <nav class="global-nav">
   <a href="index.html" class="gn-wordmark">
     <svg class="gn-icon" viewBox="0 0 26 26" fill="none">
-      <rect x="1" y="1" width="24" height="24" rx="2" stroke="var(--rule)" stroke-width="1.5"/>
+      <rect x="1" y="1" width="24" height="24" rx="2" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
       <line x1="6" y1="13" x2="20" y2="13" stroke="#C8272D" stroke-width="1.5"/>
       <line x1="13" y1="6" x2="13" y2="20" stroke="#C8272D" stroke-width="1.5"/>
-      <circle cx="13" cy="13" r="2.5" stroke="var(--rule)" stroke-width="1.5"/>
+      <circle cx="13" cy="13" r="2.5" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
     </svg>
     <span class="gn-text"><em>Safety Critical</em> Labs</span>
   </a>
   <ul class="gn-links">
+    <li><a href="index.html">Home</a></li>
     <li><a href="framework.html">Framework</a></li>
     <li><a href="process.html">Process</a></li>
     <li><a href="expertise.html" class="active">Expertise</a></li>
@@ -834,70 +835,57 @@ h2.section-title em { font-style: italic; color: var(--red); }
         <a href="index.html">Safety Critical Labs</a>
         <span>/</span> Expertise
       </div>
-      <h1>The assessment<br>team behind<br>every <em>determination.</em></h1>
+      <h1>Assessment built<br>from inside the<br><em>operational environment.</em></h1>
     </div>
     <p class="inner-hero-lead">
-      Every SCL assessment runs with a qualified team: a Lead Assessor who owns the determination, an independent Review Assessor, and domain specialist support where the operational environment demands it. The standard does not change by domain. The expertise brought to assess it does.
+      What you are paying for is a well-run assessment. One conducted by people who have worked inside the systems they are evaluating, with independent review at every phase, and a determination that holds up when it matters.
     </p>
   </div>
 </div>
 
-<!-- ASSESSMENT TEAM MODEL -->
+<!-- EXPERTISE NARRATIVE -->
 <section class="page-section" style="background: var(--bg);">
   <div class="section-inner">
-    <div class="section-eyebrow">Assessment team</div>
-    <h2 class="section-title">Every assessment.<br><em>Three roles. No exceptions.</em></h2>
-    <p class="section-lead">The methodology requires independent review at every phase. A single assessor cannot conduct and verify their own findings. That independence is structural, not optional.</p>
-    <div class="team-grid">
-      <div class="team-col fade-up">
-        <div class="team-col-num">Role 01</div>
-        <div class="team-col-role">Lead Assessor</div>
-        <div class="team-col-desc">Runs the assessment end to end. Owns the determination recommendation. Signs the Technical Assessment Report. Makes the final finding on every requirement. Independence from the client organization is mandatory.</div>
-        <div class="team-col-qual">Qualification: Domain expertise in AI and ML systems plus safety critical systems engineering. The Lead Assessor maintains full independence from all client organizations on every engagement.</div>
+    <div class="section-eyebrow">What grounds the assessment</div>
+    <h2 class="section-title">Practitioner built.<br><em>Structurally independent.</em></h2>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+      <div>
+        <p style="font-size:17px; color:var(--ink-2); line-height:1.85; font-weight:300; margin-bottom:20px;">
+          The SCL framework was not assembled from policy documents or governance templates. It was developed by practitioners who wrote AI certification requirements for programs where failure had direct consequences for human life, and who deployed AI into live production systems with measurable safety and quality outcomes.
+        </p>
+        <p style="font-size:17px; color:var(--ink-2); line-height:1.85; font-weight:300;">
+          That foundation is what every assessment reflects. Not a theory of what AI certification should look like, but a working knowledge of what it actually requires when the stakes are real.
+        </p>
       </div>
-      <div class="team-col fade-up">
-        <div class="team-col-num">Role 02</div>
-        <div class="team-col-role">Review Assessor</div>
-        <div class="team-col-desc">Conducts an independent evidence review in Phase 2 before the Lead Assessor's findings are shared. Where assessors disagree, the Lead Assessor's determination governs with the dissent on record. No phase skips independent review.</div>
-        <div class="team-col-qual">Qualification: Technical background in AI and ML systems. Does not share preliminary findings with Lead Assessor until both independent reviews are complete.</div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div style="border-left: 2px solid var(--red); padding-left: 20px;">
+          <div style="font-family:var(--mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:6px;">Independent review</div>
+          <p style="font-size:15px; color:var(--ink-2); line-height:1.7; font-weight:300;">Every phase includes independent review. No assessor conducts and verifies their own findings. That independence is structural, not optional.</p>
+        </div>
+        <div style="border-left: 2px solid var(--red); padding-left: 20px;">
+          <div style="font-family:var(--mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:6px;">Domain specialist coverage</div>
+          <p style="font-size:15px; color:var(--ink-2); line-height:1.7; font-weight:300;">Where the operational environment requires regulatory or technical depth specific to your industry, domain specialists are brought in to ensure the assessment reflects your regulatory context.</p>
+        </div>
+        <div style="border-left: 2px solid var(--red); padding-left: 20px;">
+          <div style="font-family:var(--mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:6px;">Defensible record</div>
+          <p style="font-size:15px; color:var(--ink-2); line-height:1.7; font-weight:300;">Every finding is traceable to a requirement. Every determination is documented against a specific version of the framework. The record is designed to hold up under regulatory scrutiny.</p>
+        </div>
       </div>
-      <div class="team-col fade-up">
-        <div class="team-col-num">Role 03</div>
-        <div class="team-col-role">Domain Specialist</div>
-        <div class="team-col-desc">Brought in for Phase 3 where the operational domain requires regulatory or technical depth beyond the core framework. Aviation, medical devices, automotive, and defense each carry domain specific regulatory context that the assessment team reflects.</div>
-        <div class="team-col-qual">Qualification: Domain specific certification experience in the relevant regulated industry. Engaged per assessment based on the system's operational environment.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT GROUNDS THE FRAMEWORK -->
-<section class="page-section" style="background: var(--white);">
-  <div class="section-inner">
-    <div style="max-width: 720px;">
-      <div class="section-eyebrow">The standard</div>
-      <h2 class="section-title">Built from inside<br><em>the operational environment.</em></h2>
-      <p style="font-size:17px; color:var(--ink-2); line-height:1.85; font-weight:300; margin-bottom:20px;">
-        The SCL framework was not assembled from policy documents or governance templates. It was developed by practitioners who wrote AI certification requirements for programs where failure had direct consequences for human life, and who deployed AI into live production systems with measurable safety and quality outcomes.
-      </p>
-      <p style="font-size:17px; color:var(--ink-2); line-height:1.85; font-weight:300;">
-        That foundation is what the framework reflects. Not a theory of what AI certification should look like, but a working knowledge of what it actually requires when the stakes are real.
-      </p>
     </div>
   </div>
 </section>
 
 <!-- DOMAIN COVERAGE -->
-<section class="page-section" style="background: var(--bg);">
+<section class="page-section" style="background: var(--white);">
   <div class="section-inner">
     <div class="section-eyebrow">Domain coverage</div>
     <h2 class="section-title">The framework is domain agnostic.<br><em>The assessment team is not.</em></h2>
-    <p class="section-lead">The nine requirement areas apply wherever AI failure has safety consequences. Domain specialists are brought in to ensure the assessment reflects the specific regulatory environment your system operates in.</p>
+    <p class="section-lead">The requirement areas apply wherever AI failure has safety consequences. Domain specialists are brought in to ensure the assessment reflects the specific regulatory environment your system operates in.</p>
     <div class="domain-grid">
       <div class="domain-card fade-up">
         <div class="domain-title">Aerospace &amp; Defense</div>
         <div class="domain-regs">NPR 7150.2D &middot; DO-178C &middot; MIL-STD</div>
-        <div class="domain-desc">Human spaceflight, autonomous vehicles, launch systems. The original environment that shaped the framework. Lead Assessor background is deepest here.</div>
+        <div class="domain-desc">Human spaceflight, autonomous systems, and launch programs. The original environment that shaped the framework.</div>
       </div>
       <div class="domain-card fade-up">
         <div class="domain-title">Aviation</div>
@@ -912,59 +900,47 @@ h2.section-title em { font-style: italic; color: var(--red); }
       <div class="domain-card fade-up">
         <div class="domain-title">Automotive</div>
         <div class="domain-regs">ISO 26262 &middot; SOTIF &middot; ISO/SAE 21434</div>
-        <div class="domain-desc">AI in ADAS, autonomous driving, and production quality systems. Lead Assessor has direct deployment experience in automotive AI at scale.</div>
+        <div class="domain-desc">AI in ADAS, autonomous driving, and production quality systems. Direct deployment experience in automotive AI at scale.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHY THIS MATTERS -->
+<!-- THE INSTITUTION -->
 <div class="credibility-band">
   <div class="cred-inner">
     <div class="cred-left">
-      <div class="section-eyebrow">The institution</div>
-      <h2>Built to become<br>a regulatory instrument.</h2>
+      <div class="section-eyebrow" style="color:rgba(200,39,45,0.6)">The institution</div>
+      <h2>Helping your <em style="font-style:italic; color:var(--red);">AI</em> meet<br>the regulatory world.</h2>
       <p>
-        SCL is not a consulting practice that happens to review AI systems. It is being built as a formal certification authority, with the structure, independence, and transparency that role requires.
+        The regulatory world is not waiting for AI to catch up. Standards are forming, procurement requirements are tightening, and organizations that cannot demonstrate rigorous, documented assessment are losing ground.
       </p>
       <p>
-        The framework is practitioner built, the assessment process is structurally independent, and the certification record is designed to hold up under regulatory scrutiny. Every element of how SCL operates is oriented toward that standard.
+        SCL exists to bridge that gap. Not as a consulting practice that reviews AI systems and issues reports, but as a formal certification authority that produces a defensible, citable record against a published standard. That record is what regulators and procurement officers can actually use.
       </p>
     </div>
     <div class="cred-items">
       <div class="cred-item fade-up">
         <span class="cred-bullet"></span>
-        <span class="cred-text"><strong>Practitioner built standard.</strong> Requirements developed from inside the operational environment, not adapted from governance templates by people who have never worked in safety critical systems.</span>
+        <span class="cred-text"><strong>A standard regulators can reference.</strong> The SCL framework is publicly available, citable, and versioned. When a regulator or procurement officer asks what your AI was assessed against, there is a clear answer.</span>
       </div>
       <div class="cred-item fade-up">
         <span class="cred-bullet"></span>
-        <span class="cred-text"><strong>Open and auditable.</strong> The framework is publicly available. Anyone can read the standard before engaging SCL. The assessor who wrote it is the assessor conducting the certification.</span>
+        <span class="cred-text"><strong>A record built to hold up.</strong> Every finding traceable to a requirement. Every determination documented. Retained for a minimum of ten years and available for regulatory review.</span>
       </div>
       <div class="cred-item fade-up">
         <span class="cred-bullet"></span>
-        <span class="cred-text"><strong>Regulatory engagement.</strong> Active participation in AI policy development across FAA, FDA, and defense acquisition. Certification records established now are how standards gain traction.</span>
+        <span class="cred-text"><strong>Active in the regulatory conversation.</strong> Participation in AI policy development across multiple regulated industries. Certification records established now are how standards gain traction.</span>
       </div>
       <div class="cred-item fade-up">
         <span class="cred-bullet"></span>
-        <span class="cred-text"><strong>Accreditation path.</strong> SCL is structured toward ISO/IEC 17065 accreditation for certification bodies. The goal is a recognized regulatory instrument, with the institutional infrastructure to match.</span>
+        <span class="cred-text"><strong>Structured toward formal accreditation.</strong> SCL is pursuing ISO/IEC 17065 accreditation for certification bodies. The infrastructure being built now is the foundation for recognized regulatory standing.</span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- BOTTOM CTA -->
-<section class="page-section" style="background: var(--white);">
-  <div class="section-inner" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px;">
-    <div>
-      <div class="section-eyebrow">Ready to work together?</div>
-      <h2 class="section-title" style="margin-bottom:0;">Start with a conversation.</h2>
-    </div>
-    <div style="display:flex; gap:12px; flex-wrap:wrap;">
-      <a href="contact.html" class="btn btn-solid">Get in touch</a>
-      <a href="process.html" class="btn btn-outline">How certification works</a>
-    </div>
-  </div>
-</section>
+
 
 </div>
 

@@ -77,17 +77,18 @@
 }
 
 /* ─── STRUCTURE EXPLAINER ─────────────────────────────────── */
-.structure-section { background: var(--white); padding: 80px 40px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.structure-section { background: var(--ink); padding: 80px 40px; }
 
 .struct-inner { max-width: 1140px; margin: 0 auto; }
 
 .struct-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
-  margin-top: 48px; background: var(--rule); border: 1px solid var(--rule);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  margin-top: 48px;
 }
 
 .struct-col {
-  background: var(--white);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
   padding: 32px 28px;
 }
 
@@ -98,12 +99,12 @@
 }
 
 .struct-col-name {
-  font-size: 18px; font-weight: 500; color: var(--ink);
+  font-size: 18px; font-weight: 600; color: #fff;
   margin-bottom: 12px;
 }
 
 .struct-col-desc {
-  font-size: 13px; color: var(--ink-2); line-height: 1.65;
+  font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.65;
   margin-bottom: 16px;
 }
 
@@ -114,10 +115,10 @@
 .struct-req-tag {
   font-family: var(--mono); font-size: 10px;
   letter-spacing: 0.07em; text-transform: uppercase;
-  background: var(--bg);
-  color: var(--ink-2);
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.5);
   padding: 4px 10px; border-radius: 2px;
-  border: 1px solid var(--rule);
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 /* ─── OPEN STANDARD BAND ──────────────────────────────────── */
@@ -175,14 +176,15 @@
 <nav class="global-nav">
   <a href="index.html" class="gn-wordmark">
     <svg class="gn-icon" viewBox="0 0 26 26" fill="none">
-      <rect x="1" y="1" width="24" height="24" rx="2" stroke="var(--rule)" stroke-width="1.5"/>
+      <rect x="1" y="1" width="24" height="24" rx="2" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
       <line x1="6" y1="13" x2="20" y2="13" stroke="#C8272D" stroke-width="1.5"/>
       <line x1="13" y1="6" x2="13" y2="20" stroke="#C8272D" stroke-width="1.5"/>
-      <circle cx="13" cy="13" r="2.5" stroke="var(--rule)" stroke-width="1.5"/>
+      <circle cx="13" cy="13" r="2.5" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
     </svg>
     <span class="gn-text"><em>Safety Critical</em> Labs</span>
   </a>
   <ul class="gn-links">
+    <li><a href="index.html">Home</a></li>
     <li><a href="framework.html" class="active">Framework</a></li>
     <li><a href="process.html">Process</a></li>
     <li><a href="expertise.html">Expertise</a></li>
@@ -204,7 +206,7 @@
       <h1>Nine requirement<br>areas. Every <em>AI<br>failure mode</em> covered.</h1>
     </div>
     <p class="inner-hero-lead">
-      The SCL AI Requirements Framework establishes verifiable, pass/fail requirements for each AI-specific failure mode not addressed by existing spaceflight, aviation, or safety-critical software standards. Algorithm-agnostic. Domain-applicable. Openly published and citable.
+      The SCL AI Requirements Framework establishes verifiable, pass/fail requirements for each AI-specific failure mode not addressed by existing safety-critical software standards. Algorithm-agnostic. Domain-applicable. Openly published under a citable DOI.
     </p>
   </div>
 </div>
@@ -227,63 +229,54 @@
         <div class="fw-card-id">AI-1</div>
         <div class="fw-card-title">Data partitioning &amp; classification</div>
         <div class="fw-card-body">Training/validation/test separation with documented provenance. CUI and ITAR classification inheritance through AI output channels.</div>
-        <div class="fw-card-detail">Requires explicit documentation of data lineage, version control of training datasets, and formal inheritance of data classification through all model outputs. Addresses the foundational quality control gap in AI system documentation.</div>
         <div class="fw-scope">All classifications</div>
       </div>
       <div class="fw-card fade-up">
         <div class="fw-card-id">AI-2</div>
         <div class="fw-card-title">Bias detection &amp; mitigation</div>
         <div class="fw-card-body">Baseline performance across user classes and operational contexts. Bias-free training data requirements with verifiable inspection criteria.</div>
-        <div class="fw-card-detail">Performance must be characterized across all relevant user populations and environmental conditions. Verification cannot rest on policy commitments alone &mdash; inspection criteria must be defined, documented, and testable.</div>
         <div class="fw-scope">All classifications</div>
       </div>
       <div class="fw-card fade-up">
         <div class="fw-card-id">AI-3</div>
         <div class="fw-card-title">ML test coverage</div>
         <div class="fw-card-body">A defined test matrix as the ML equivalent of code coverage &mdash; spanning nominal performance, edge cases, failure mode injection, and distributional boundary testing.</div>
-        <div class="fw-card-detail">Existing standards define software test coverage through structural metrics (branch, decision, MC/DC). AI systems require an equivalent test taxonomy spanning behavioral dimensions not captured by code analysis alone.</div>
         <div class="fw-scope">All classifications</div>
       </div>
       <div class="fw-card fade-up">
         <div class="fw-card-id">AI-4</div>
         <div class="fw-card-title">Continuous validation</div>
         <div class="fw-card-body">Post-deployment drift detection with defined thresholds, revalidation triggers, and escalation paths. Closes the single largest gap in existing spaceflight and aviation standards.</div>
-        <div class="fw-card-detail">Both NPR 7150.2D and DO-178C assume V&amp;V occurs at delivery and behavior is stable thereafter. AI systems do not comply with this assumption. Continuous validation requirements are the direct technical response to that structural gap.</div>
         <div class="fw-scope">All classifications</div>
       </div>
       <div class="fw-card fade-up">
         <div class="fw-card-id">AI-5</div>
         <div class="fw-card-title">Hallucination prevention</div>
         <div class="fw-card-body">Output confidence bounding with defined thresholds for safety-critical decisions. Graceful degradation to human override below threshold.</div>
-        <div class="fw-card-detail">Confident, plausible, incorrect outputs are not recognized by any current spaceflight or aviation standard. AI-5 requires bounded confidence outputs, defined safety thresholds, and specified degradation paths to human authority when model confidence falls below acceptable levels.</div>
         <div class="fw-scope">All classifications</div>
       </div>
       <div class="fw-card fade-up">
         <div class="fw-card-id">AI-6</div>
         <div class="fw-card-title">Out-of-distribution detection</div>
         <div class="fw-card-body">Detection, logging, and escalation of inputs outside the training distribution &mdash; the condition under which AI behavior is least predictable.</div>
-        <div class="fw-card-detail">No current standard requires OOD detection. AI-6 mandates that systems identify when inputs fall outside their training distribution, log these events with sufficient fidelity for post-mission analysis, and escalate according to a defined protocol.</div>
         <div class="fw-scope">All classifications</div>
       </div>
       <div class="fw-card fade-up">
         <div class="fw-card-id">AI-7</div>
         <div class="fw-card-title">Adversarial robustness</div>
         <div class="fw-card-body">Adversarial testing protocols, defined robustness bounds, and specified behavioral requirements under adversarial input conditions.</div>
-        <div class="fw-card-detail">Safety-critical AI systems must be assessed against adversarial inputs that exploit known vulnerabilities in the model architecture. Robustness bounds must be defined, documented, and verifiable. Required for any system operating in an environment where adversarial manipulation is a plausible threat.</div>
         <div class="fw-scope">Safety-critical only</div>
       </div>
       <div class="fw-card fade-up">
         <div class="fw-card-id">AI-8</div>
         <div class="fw-card-title">Explainability</div>
         <div class="fw-card-body">Operator-accessible decision reasoning with traceable decision basis. Required for any AI system where a traditional safety case would demand logical inspection.</div>
-        <div class="fw-card-detail">Traditional safety cases require traceable logic from requirements to implementation. AI-8 establishes an equivalent requirement: operator-accessible reasoning that allows a qualified engineer to understand the basis for any safety-relevant decision made by the system.</div>
         <div class="fw-scope">Safety &amp; mission critical</div>
       </div>
       <div class="fw-card fade-up">
         <div class="fw-card-id">AI-9</div>
         <div class="fw-card-title">Human-AI teaming</div>
         <div class="fw-card-body">Defined AI authority limits, human override requirements, trust calibration testing, and interaction audit trails.</div>
-        <div class="fw-card-detail">Built from the operational realities of spaceflight crew dynamics. AI-9 requires that AI authority limits be explicitly defined, human override capability be maintained and tested, crew trust calibration be assessed against known AI error rates, and all human-AI interactions be logged for mission review.</div>
         <div class="fw-scope">Safety &amp; mission critical</div>
       </div>
     </div>
@@ -293,9 +286,9 @@
 <!-- CLASSIFICATION STRUCTURE -->
 <div class="structure-section">
   <div class="struct-inner">
-    <div class="section-eyebrow">Classification levels</div>
-    <h2 class="section-title">Three tiers. Scaled to consequence.</h2>
-    <p style="font-size:16px;color:var(--ink-2);font-weight:300;line-height:1.75;max-width:560px;margin-top:0;">
+    <div class="section-eyebrow" style="color:rgba(255,255,255,0.3)">Classification levels</div>
+    <h2 class="section-title" style="color:#fff;">Three tiers. Scaled to consequence.</h2>
+    <p style="font-size:16px;color:rgba(255,255,255,0.45);font-weight:300;line-height:1.75;max-width:560px;margin-top:0;">
       The framework applies all nine requirement areas at different depths depending on the classification of your AI system. Classification is determined during Phase 1 of the assessment.
     </p>
     <div class="struct-grid">
@@ -351,7 +344,7 @@
 <div class="open-standard-band">
   <div class="os-inner">
     <div class="os-left">
-      <div class="section-eyebrow">What assessment produces</div>
+      <div class="section-eyebrow" style="color: rgba(200,39,45,0.6)">What assessment produces</div>
       <h2>A formal determination.<br>Not a score.</h2>
       <p>
         Assessment against this framework produces one of three outcomes. Each determination is documented against a specific version of the framework, at a defined classification level, with every finding on record. There is no subjective rating, no maturity index, no percentage.
@@ -384,19 +377,7 @@
   </div>
 </div>
 
-<!-- BOTTOM NAV -->
-<section class="page-section" style="background: var(--white);">
-  <div class="section-inner" style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 20px;">
-    <div>
-      <div class="section-eyebrow">Ready to begin?</div>
-      <h2 class="section-title" style="margin-bottom:0;">See how certification works &rarr;</h2>
-    </div>
-    <div style="display:flex; gap: 12px;">
-      <a href="process.html" class="btn btn-solid">Certification process</a>
-      <a href="contact.html" class="btn btn-outline">Get in touch</a>
-    </div>
-  </div>
-</section>
+
 
 </div><!-- /page-shell -->
 
