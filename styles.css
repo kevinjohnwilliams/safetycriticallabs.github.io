@@ -254,6 +254,17 @@ h2.section-title em { font-style: italic; color: var(--red); }
   text-decoration: none;
 }
 
+.footer-wordmark-text {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); margin-left: 8px;
+}
+
+.footer-wordmark-text em {
+  font-style: normal;
+  color: rgba(200,39,45,0.5);
+}
+
 .footer-links {
   display: flex; gap: 20px; list-style: none;
 }
