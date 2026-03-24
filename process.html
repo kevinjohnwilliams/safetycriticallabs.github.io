@@ -204,7 +204,7 @@
   box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 }
 .cert-preview-frame iframe {
-  width: 860px; height: 1060px;
+  width: 860px; height: 1320px;
   border: none; display: block;
   transform-origin: top left;
   pointer-events: none;
@@ -685,7 +685,7 @@ function scaleCertPreview() {
   const containerWidth = frame.offsetWidth;
   const scale = containerWidth / 860;
   iframe.style.transform = 'scale(' + scale + ')';
-  frame.style.height = Math.round(1060 * scale) + 'px';
+  frame.style.height = Math.round(1320 * scale) + 'px';
 }
 scaleCertPreview();
 window.addEventListener('resize', scaleCertPreview);
